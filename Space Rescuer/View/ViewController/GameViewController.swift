@@ -10,35 +10,45 @@ import SpriteKit
 import SnapKit
 
 class GameViewController: UIViewController {
+    
+    var viewModel: ViewModel? {
+        didSet {
+            gameScene.userDelegate = viewModel
+        }
+    }
+    private let gameScene = GameScene()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroungImage()
-        // TODO: Add delegate
         setupScene()
     }
+}
+
+//MARK: - UIViewControllerProtocol
+extension GameViewController: UIViewControllerProtocol {
     
-    private func setBackgroungImage() {
+}
+
+//MARK: - Set up
+private extension GameViewController {
+    func setBackgroungImage() {
         let imageView = UIImageView(image: UIImage(named: .backgroungImageName))
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         imageView.snp.setSizeEqualToSuperView()
     }
     
-    private func setupScene(delegate: GameSceneDelegate? = nil) {
-        let gameScene = GameScene()
-        gameScene.userDelegate = delegate
-        gameScene.scaleMode = .aspectFill
-        gameScene.backgroundColor = .clear
+    func setupScene() {
+        
+        gameScene.setUp(size: view.bounds.size)
 
-        let sceneView = SKView()
+        let sceneView = SKView(frame: view.frame)
         sceneView.ignoresSiblingOrder = false
         sceneView.backgroundColor = .clear
 
         view.addSubview(sceneView)
-        sceneView.snp.setSizeEqualToSuperView()
-        
         sceneView.presentScene(gameScene)
     }
 }
