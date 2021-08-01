@@ -11,6 +11,8 @@ import GameplayKit
 class GameScene: SKScene {
     
     weak var userDelegate: GameSceneDelegate?
+    private var shouldTouchesBeChecked = false
+    private var currentDifficulty: TimeInterval = 0.5
     
     private let spaceShip = SpaceShip()
     
@@ -29,7 +31,6 @@ class GameScene: SKScene {
         spaceShip.zPosition = 1
         addChild(spaceShip)
         
-        Meteor.addMeteorCreationAction(to: self, creationDuration: 0.2)
         Astronaut.addAstronautCreationAction(to: self)
     }
     
@@ -62,21 +63,32 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        if !shouldTouchesBeChecked { return }
+        
         if isCollisionBetweenSpaceShipAndMeteorHappend(contact) {
-            isPaused = true
+            meteorCollisionHappened()
             return
         }
         
+        removeAstronaut(contact)
+        userDelegate?.astronautCollisionHappened()
+    }
+    
+    private func removeAstronaut(_ contact: SKPhysicsContact) {
         if contact.bodyA.node?.name ?? "" == .astronaut {
             contact.bodyA.node?.removeFromParent()
-            let generator = UIImpactFeedbackGenerator(style: .medium)
-            generator.impactOccurred()
+            return
         }
-        if contact.bodyB.node?.name ?? "" == .astronaut {
-            contact.bodyB.node?.removeFromParent()
-            let generator = UIImpactFeedbackGenerator(style: .medium)
-            generator.impactOccurred()
+        contact.bodyB.node?.removeFromParent()
+    }
+    
+    private func meteorCollisionHappened() {
+        removeAction(forKey: .meteorFallingAction)
+        enumerateChildNodes(withName: .meteor) { node, _ in
+            node.removeFromParent()
         }
+        shouldTouchesBeChecked = false
+        userDelegate?.meteorCollisionHappened()
     }
     
     private func isCollisionBetweenSpaceShipAndMeteorHappend(_ contact: SKPhysicsContact) -> Bool {
@@ -86,6 +98,21 @@ extension GameScene: SKPhysicsContactDelegate {
         return ((aBitMask == .spaceShip && bBitMask == .meteor) || (bBitMask == .spaceShip && aBitMask == .meteor)) && !Cheats.shared.isCollisionCheatCodeActivated
     }
     
+}
+
+//MARK: - GameSceneProtocol
+extension GameScene: GameSceneProtocol {
+    func increaseDifficulty() {
+        currentDifficulty -= 0.1
+        removeAction(forKey: .meteorFallingAction)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
+    }
+    
+    func startNewGame() {
+        currentDifficulty = 0.5
+        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
+        shouldTouchesBeChecked = true
+    }
 }
 
 //MARK: - SetUp

@@ -40,6 +40,8 @@ class Astronaut: SKSpriteNode {
         physicsBody?.categoryBitMask = .astronaut
         physicsBody?.collisionBitMask = .spaceShip | .meteor | .astronaut
         physicsBody?.contactTestBitMask = .spaceShip
+        
+        physicsBody?.angularVelocity = CGFloat.random(in: -5...5)
     }
 }
 
@@ -52,7 +54,7 @@ extension Astronaut {
                 astronaut.zPosition = 1
                 parent.addChild(astronaut)
             },
-            SKAction.wait(forDuration: 0.9, withRange: 0.5)
+            SKAction.wait(forDuration: 1.1, withRange: 0.5)
         ])
         parent.run(SKAction.repeatForever(astronautSequensAction))
     }

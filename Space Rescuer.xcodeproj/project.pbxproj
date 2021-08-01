@@ -16,13 +16,16 @@
 		D25A366726B58F1300410F06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25A366626B58F1300410F06 /* Launch Screen.storyboard */; };
 		D25A366A26B5964C00410F06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366926B5964C00410F06 /* Constants.swift */; };
 		D25A366F26B5992800410F06 /* GameSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366E26B5992800410F06 /* GameSceneDelegate.swift */; };
-		D25A367126B5CB4A00410F06 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367026B5CB4A00410F06 /* ViewModel.swift */; };
-		D25A367326B5CB9B00410F06 /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */; };
+		D25A367126B5CB4A00410F06 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367026B5CB4A00410F06 /* GameViewModel.swift */; };
+		D25A367326B5CB9B00410F06 /* GameViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367226B5CB9B00410F06 /* GameViewControllerProtocol.swift */; };
 		D25A367726B5CE4200410F06 /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = D25A367626B5CE4200410F06 /* Stars.sks */; };
 		D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367C26B6941600410F06 /* SpaceShip.swift */; };
 		D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367E26B69BAE00410F06 /* Meteor.swift */; };
 		D25A368126B6AA7F00410F06 /* Cheats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368026B6AA7F00410F06 /* Cheats.swift */; };
 		D25A368326B6C14900410F06 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368226B6C14800410F06 /* Astronaut.swift */; };
+		D25A368526B6CFEC00410F06 /* GameSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368426B6CFEC00410F06 /* GameSceneProtocol.swift */; };
+		D25A368726B6D1C400410F06 /* GameViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368626B6D1C400410F06 /* GameViewModelProtocol.swift */; };
+		D25A368B26B6D99A00410F06 /* Georama-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D25A368826B6D85600410F06 /* Georama-VariableFont_wdth,wght.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,13 +45,16 @@
 		D25A366626B58F1300410F06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D25A366926B5964C00410F06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D25A366E26B5992800410F06 /* GameSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneDelegate.swift; sourceTree = "<group>"; };
-		D25A367026B5CB4A00410F06 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
+		D25A367026B5CB4A00410F06 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		D25A367226B5CB9B00410F06 /* GameViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerProtocol.swift; sourceTree = "<group>"; };
 		D25A367626B5CE4200410F06 /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
 		D25A367C26B6941600410F06 /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		D25A367E26B69BAE00410F06 /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		D25A368026B6AA7F00410F06 /* Cheats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cheats.swift; sourceTree = "<group>"; };
 		D25A368226B6C14800410F06 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
+		D25A368426B6CFEC00410F06 /* GameSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameSceneProtocol.swift; path = ../../../../../../Downloads/GameSceneProtocol.swift; sourceTree = "<group>"; };
+		D25A368626B6D1C400410F06 /* GameViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelProtocol.swift; sourceTree = "<group>"; };
+		D25A368826B6D85600410F06 /* Georama-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Georama-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer_Space_RescuerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space RescuerTests.release.xcconfig"; path = "Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,9 +111,7 @@
 				D25A366326B58EAB00410F06 /* Scene */,
 				D25A366426B58EBF00410F06 /* ViewModel */,
 				D25A366526B58EFC00410F06 /* View */,
-				D25A366926B5964C00410F06 /* Constants.swift */,
-				D25A368026B6AA7F00410F06 /* Cheats.swift */,
-				D25A363E26B58CE300410F06 /* Assets.xcassets */,
+				D25A368C26B6DC3300410F06 /* Supporting Files */,
 				D25A364026B58CE300410F06 /* Info.plist */,
 			);
 			path = "Space Rescuer";
@@ -133,7 +137,9 @@
 		D25A366426B58EBF00410F06 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D25A367026B5CB4A00410F06 /* ViewModel.swift */,
+				D25A368026B6AA7F00410F06 /* Cheats.swift */,
+				D25A367026B5CB4A00410F06 /* GameViewModel.swift */,
+				D25A368626B6D1C400410F06 /* GameViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D25A366E26B5992800410F06 /* GameSceneDelegate.swift */,
+				D25A368426B6CFEC00410F06 /* GameSceneProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -158,7 +165,7 @@
 		D25A367426B5CBAF00410F06 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */,
+				D25A367226B5CB9B00410F06 /* GameViewControllerProtocol.swift */,
 				D25A363926B58CE100410F06 /* GameViewController.swift */,
 			);
 			path = ViewController;
@@ -182,6 +189,16 @@
 				D25A368226B6C14800410F06 /* Astronaut.swift */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		D25A368C26B6DC3300410F06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D25A366926B5964C00410F06 /* Constants.swift */,
+				D25A368826B6D85600410F06 /* Georama-VariableFont_wdth,wght.ttf */,
+				D25A363E26B58CE300410F06 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E322D3A04424D4ED0F2454EA /* Frameworks */ = {
@@ -253,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25A368B26B6D99A00410F06 /* Georama-VariableFont_wdth,wght.ttf in Resources */,
 				D25A363426B58CE100410F06 /* GameScene.sks in Resources */,
 				D25A367726B5CE4200410F06 /* Stars.sks in Resources */,
 				D25A363F26B58CE300410F06 /* Assets.xcassets in Resources */,
@@ -309,17 +327,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D25A367326B5CB9B00410F06 /* UIViewControllerProtocol.swift in Sources */,
+				D25A367326B5CB9B00410F06 /* GameViewControllerProtocol.swift in Sources */,
 				D25A368326B6C14900410F06 /* Astronaut.swift in Sources */,
 				D25A363826B58CE100410F06 /* GameScene.swift in Sources */,
 				D25A366F26B5992800410F06 /* GameSceneDelegate.swift in Sources */,
+				D25A368726B6D1C400410F06 /* GameViewModelProtocol.swift in Sources */,
 				D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */,
 				D25A363A26B58CE100410F06 /* GameViewController.swift in Sources */,
 				D25A368126B6AA7F00410F06 /* Cheats.swift in Sources */,
 				D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */,
+				D25A368526B6CFEC00410F06 /* GameSceneProtocol.swift in Sources */,
 				D25A366A26B5964C00410F06 /* Constants.swift in Sources */,
 				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
-				D25A367126B5CB4A00410F06 /* ViewModel.swift in Sources */,
+				D25A367126B5CB4A00410F06 /* GameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,5 +8,6 @@
 import UIKit
 
 protocol GameSceneDelegate: AnyObject {
-
+    func astronautCollisionHappened()
+    func meteorCollisionHappened()
 }

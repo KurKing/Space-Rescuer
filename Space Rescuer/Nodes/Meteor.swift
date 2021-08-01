@@ -37,7 +37,7 @@ class Meteor: SKSpriteNode {
     
     private func addColorAnimation() {
         let randomColor = [UIColor.red, UIColor.yellow,
-                           UIColor.green, UIColor.white].randomElement()!
+                           UIColor.green, UIColor.clear].randomElement()!
         
         run(SKAction.colorize(with: randomColor, colorBlendFactor: 0.2, duration: 0))
     }

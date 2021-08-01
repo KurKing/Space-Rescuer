@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let viewController = GameViewController()
-        let viewModel = ViewModel(viewController: viewController)
+        let viewModel = GameViewModel(viewController: viewController)
         viewController.viewModel = viewModel
         
         window = UIWindow(frame: UIScreen.main.bounds)

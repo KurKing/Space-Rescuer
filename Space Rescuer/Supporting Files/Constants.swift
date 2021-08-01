@@ -9,11 +9,13 @@ import Foundation
 
 extension String {
     static var backgroungImageName = "bg"
-    static var spaceShip = "redSpaceShip"
+    static var spaceShip = "blueSpaceShip"
     static let meteor = "meteor"
     static let astronaut = "astronaut"
     
     static let meteorFallingAction = "meteorFallingAction"
+    
+    static let customFontName = "GeoramaRoman-ExtraCondensedThin_Bold"
 }
 
 extension UInt32 {
