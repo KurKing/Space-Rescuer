@@ -8,10 +8,16 @@
 import Foundation
 
 class Cheats {
-    static var isCheatCodeEntered = false
-    static func enterCheatCode(code: String) {
+    static let shared = Cheats()
+    
+    var isCollisionCheatCodeActivated = false
+    func enterCheatCode(code: String) -> (Bool, String) {
         if code.hash == 3720932424078554781 {
-            Cheats.isCheatCodeEntered = true
+            isCollisionCheatCodeActivated = true
+            return (true, "Сollision is disabled!")
         }
+        return (false, "Unknown cheat code!")
     }
+    
+    private init() {}
 }

@@ -35,14 +35,14 @@ class Meteor: SKSpriteNode {
         super.init(coder: aDecoder)
     }
     
-    func addColorAnimation() {
+    private func addColorAnimation() {
         let randomColor = [UIColor.red, UIColor.yellow,
                            UIColor.green, UIColor.white].randomElement()!
         
         run(SKAction.colorize(with: randomColor, colorBlendFactor: 0.2, duration: 0))
     }
     
-    func setUpPhysics(texture: SKTexture) {
+    private func setUpPhysics(texture: SKTexture) {
         physicsBody = SKPhysicsBody(texture: texture, size: size)
         
         physicsBody?.categoryBitMask = .meteor
@@ -66,6 +66,6 @@ extension Meteor {
             SKAction.wait(forDuration: creationDuration, withRange: 0.5)
         ])
         
-        parent.run(SKAction.repeatForever(meteorSequensAction))
+        parent.run(SKAction.repeatForever(meteorSequensAction), withKey: .meteorFallingAction)
     }
 }

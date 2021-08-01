@@ -22,19 +22,26 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-                
+        
         createStars()
         setUpPhysics()
         
         spaceShip.zPosition = 1
         addChild(spaceShip)
         
-        Meteor.addMeteorCreationAction(to: self, creationDuration: 0.5)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: 0.2)
+        Astronaut.addAstronautCreationAction(to: self)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             spaceShip.move(to: touch.location(in: self))
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isPaused {
+            isPaused = false
         }
     }
 }
@@ -43,26 +50,42 @@ class GameScene: SKScene {
 extension GameScene: SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
-        enumerateChildNodes(withName: "meteor") { (meteor, stop) in
-            let heigth = UIScreen.main.bounds.height
-            
-            if meteor.position.y < -heigth/2-meteor.frame.height {
-                meteor.removeFromParent()
+        for i in [String.meteor, String.astronaut] {
+            enumerateChildNodes(withName: i) { (node, stop) in
+                let heigth = UIScreen.main.bounds.height
+                
+                if node.position.y < -heigth/2-node.frame.height {
+                    node.removeFromParent()
+                }
             }
         }
     }
-
+    
     func didBegin(_ contact: SKPhysicsContact) {
-        if isCollisionHappend(contact) {
-            // TODO: LOSE
-            removeAllActions()
+        if isCollisionBetweenSpaceShipAndMeteorHappend(contact) {
+            isPaused = true
+            return
+        }
+        
+        if contact.bodyA.node?.name ?? "" == .astronaut {
+            contact.bodyA.node?.removeFromParent()
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+        }
+        if contact.bodyB.node?.name ?? "" == .astronaut {
+            contact.bodyB.node?.removeFromParent()
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
         }
     }
     
-    private func isCollisionHappend(_ contact: SKPhysicsContact) -> Bool {
-        return (contact.bodyA.categoryBitMask == .spaceShip || contact.bodyB.categoryBitMask == .spaceShip) && !Cheats.isCheatCodeEntered
+    private func isCollisionBetweenSpaceShipAndMeteorHappend(_ contact: SKPhysicsContact) -> Bool {
+        let aBitMask = contact.bodyA.categoryBitMask
+        let bBitMask = contact.bodyB.categoryBitMask
+        
+        return ((aBitMask == .spaceShip && bBitMask == .meteor) || (bBitMask == .spaceShip && aBitMask == .meteor)) && !Cheats.shared.isCollisionCheatCodeActivated
     }
-
+    
 }
 
 //MARK: - SetUp
