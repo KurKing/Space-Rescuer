@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11712B5ADFBC054F5B300820 /* Pods_Space_RescuerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CED411B158840CC16FAFF85 /* Pods_Space_RescuerTests.framework */; };
-		5B7CBCDFA03AA7D469F907C8 /* Pods_Space_Rescuer_Space_RescuerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */; };
 		C8E29BEC301C2F9BDBF2F577 /* Pods_Space_Rescuer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67FED40EBE073FCD5D1AD76 /* Pods_Space_Rescuer.framework */; };
 		D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363126B58CE100410F06 /* AppDelegate.swift */; };
 		D25A363426B58CE100410F06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D25A363326B58CE100410F06 /* GameScene.sks */; };
 		D25A363826B58CE100410F06 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363726B58CE100410F06 /* GameScene.swift */; };
 		D25A363A26B58CE100410F06 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363926B58CE100410F06 /* GameViewController.swift */; };
 		D25A363F26B58CE300410F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D25A363E26B58CE300410F06 /* Assets.xcassets */; };
-		D25A364A26B58CE300410F06 /* Space_RescuerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A364926B58CE300410F06 /* Space_RescuerTests.swift */; };
-		D25A365526B58CE300410F06 /* Space_RescuerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A365426B58CE300410F06 /* Space_RescuerUITests.swift */; };
 		D25A366726B58F1300410F06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25A366626B58F1300410F06 /* Launch Screen.storyboard */; };
 		D25A366A26B5964C00410F06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366926B5964C00410F06 /* Constants.swift */; };
 		D25A366C26B597B500410F06 /* ConstraintViewDSL Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */; };
@@ -24,24 +20,9 @@
 		D25A367126B5CB4A00410F06 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367026B5CB4A00410F06 /* ViewModel.swift */; };
 		D25A367326B5CB9B00410F06 /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */; };
 		D25A367726B5CE4200410F06 /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = D25A367626B5CE4200410F06 /* Stars.sks */; };
+		D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367C26B6941600410F06 /* SpaceShip.swift */; };
+		D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367E26B69BAE00410F06 /* Meteor.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D25A364626B58CE300410F06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D25A362626B58CE100410F06 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D25A362D26B58CE100410F06;
-			remoteInfo = "Space Rescuer";
-		};
-		D25A365126B58CE300410F06 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D25A362626B58CE100410F06 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D25A362D26B58CE100410F06;
-			remoteInfo = "Space Rescuer";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		06DD052ACB6E87C518623350 /* Pods-Space Rescuer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,12 +38,6 @@
 		D25A363926B58CE100410F06 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D25A363E26B58CE300410F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D25A364026B58CE300410F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D25A364526B58CE300410F06 /* Space RescuerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space RescuerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D25A364926B58CE300410F06 /* Space_RescuerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_RescuerTests.swift; sourceTree = "<group>"; };
-		D25A364B26B58CE300410F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D25A365026B58CE300410F06 /* Space RescuerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space RescuerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D25A365426B58CE300410F06 /* Space_RescuerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space_RescuerUITests.swift; sourceTree = "<group>"; };
-		D25A365626B58CE300410F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25A366626B58F1300410F06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D25A366926B5964C00410F06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintViewDSL Extension.swift"; sourceTree = "<group>"; };
@@ -70,6 +45,8 @@
 		D25A367026B5CB4A00410F06 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 		D25A367626B5CE4200410F06 /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
+		D25A367C26B6941600410F06 /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
+		D25A367E26B69BAE00410F06 /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer_Space_RescuerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space RescuerTests.release.xcconfig"; path = "Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,22 +58,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8E29BEC301C2F9BDBF2F577 /* Pods_Space_Rescuer.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D25A364226B58CE300410F06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				11712B5ADFBC054F5B300820 /* Pods_Space_RescuerTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D25A364D26B58CE300410F06 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B7CBCDFA03AA7D469F907C8 /* Pods_Space_Rescuer_Space_RescuerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				D25A363026B58CE100410F06 /* Space Rescuer */,
-				D25A364826B58CE300410F06 /* Space RescuerTests */,
-				D25A365326B58CE300410F06 /* Space RescuerUITests */,
 				D25A362F26B58CE100410F06 /* Products */,
 				09837989C93C452DC80AAB08 /* Pods */,
 				E322D3A04424D4ED0F2454EA /* Frameworks */,
@@ -132,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				D25A362E26B58CE100410F06 /* Space Rescuer.app */,
-				D25A364526B58CE300410F06 /* Space RescuerTests.xctest */,
-				D25A365026B58CE300410F06 /* Space RescuerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,32 +99,16 @@
 			isa = PBXGroup;
 			children = (
 				D25A366226B58DFA00410F06 /* App */,
-				D25A366326B58EAB00410F06 /* Game scene */,
+				D25A367B26B693E700410F06 /* Nodes */,
+				D25A366326B58EAB00410F06 /* Scene */,
 				D25A366426B58EBF00410F06 /* ViewModel */,
 				D25A366526B58EFC00410F06 /* View */,
+				D25A367A26B5DBE600410F06 /* Extension */,
 				D25A366926B5964C00410F06 /* Constants.swift */,
-				D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */,
+				D25A363E26B58CE300410F06 /* Assets.xcassets */,
 				D25A364026B58CE300410F06 /* Info.plist */,
 			);
 			path = "Space Rescuer";
-			sourceTree = "<group>";
-		};
-		D25A364826B58CE300410F06 /* Space RescuerTests */ = {
-			isa = PBXGroup;
-			children = (
-				D25A364926B58CE300410F06 /* Space_RescuerTests.swift */,
-				D25A364B26B58CE300410F06 /* Info.plist */,
-			);
-			path = "Space RescuerTests";
-			sourceTree = "<group>";
-		};
-		D25A365326B58CE300410F06 /* Space RescuerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D25A365426B58CE300410F06 /* Space_RescuerUITests.swift */,
-				D25A365626B58CE300410F06 /* Info.plist */,
-			);
-			path = "Space RescuerUITests";
 			sourceTree = "<group>";
 		};
 		D25A366226B58DFA00410F06 /* App */ = {
@@ -178,13 +119,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		D25A366326B58EAB00410F06 /* Game scene */ = {
+		D25A366326B58EAB00410F06 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				D25A367526B5CBBE00410F06 /* Scenes */,
 				D25A366D26B5991000410F06 /* Protocols */,
 			);
-			path = "Game scene";
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		D25A366426B58EBF00410F06 /* ViewModel */ = {
@@ -200,7 +141,6 @@
 			children = (
 				D25A367426B5CBAF00410F06 /* ViewController */,
 				D25A366626B58F1300410F06 /* Launch Screen.storyboard */,
-				D25A363E26B58CE300410F06 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +170,23 @@
 				D25A363726B58CE100410F06 /* GameScene.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D25A367A26B5DBE600410F06 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D25A367B26B693E700410F06 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				D25A367C26B6941600410F06 /* SpaceShip.swift */,
+				D25A367E26B69BAE00410F06 /* Meteor.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 		E322D3A04424D4ED0F2454EA /* Frameworks */ = {
@@ -264,46 +221,6 @@
 			productReference = D25A362E26B58CE100410F06 /* Space Rescuer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D25A364426B58CE300410F06 /* Space RescuerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D25A365C26B58CE300410F06 /* Build configuration list for PBXNativeTarget "Space RescuerTests" */;
-			buildPhases = (
-				B2EEBB156C3AD87D6A188E32 /* [CP] Check Pods Manifest.lock */,
-				D25A364126B58CE300410F06 /* Sources */,
-				D25A364226B58CE300410F06 /* Frameworks */,
-				D25A364326B58CE300410F06 /* Resources */,
-				219E633AABC98AA08BD74F0D /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D25A364726B58CE300410F06 /* PBXTargetDependency */,
-			);
-			name = "Space RescuerTests";
-			productName = "Space RescuerTests";
-			productReference = D25A364526B58CE300410F06 /* Space RescuerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D25A364F26B58CE300410F06 /* Space RescuerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D25A365F26B58CE300410F06 /* Build configuration list for PBXNativeTarget "Space RescuerUITests" */;
-			buildPhases = (
-				E00118D52353A212AC1E5A39 /* [CP] Check Pods Manifest.lock */,
-				D25A364C26B58CE300410F06 /* Sources */,
-				D25A364D26B58CE300410F06 /* Frameworks */,
-				D25A364E26B58CE300410F06 /* Resources */,
-				DC935494045D113FEA032804 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D25A365226B58CE300410F06 /* PBXTargetDependency */,
-			);
-			name = "Space RescuerUITests";
-			productName = "Space RescuerUITests";
-			productReference = D25A365026B58CE300410F06 /* Space RescuerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,14 +232,6 @@
 				TargetAttributes = {
 					D25A362D26B58CE100410F06 = {
 						CreatedOnToolsVersion = 12.5.1;
-					};
-					D25A364426B58CE300410F06 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = D25A362D26B58CE100410F06;
-					};
-					D25A364F26B58CE300410F06 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = D25A362D26B58CE100410F06;
 					};
 				};
 			};
@@ -340,8 +249,6 @@
 			projectRoot = "";
 			targets = (
 				D25A362D26B58CE100410F06 /* Space Rescuer */,
-				D25A364426B58CE300410F06 /* Space RescuerTests */,
-				D25A364F26B58CE300410F06 /* Space RescuerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -358,40 +265,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D25A364326B58CE300410F06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D25A364E26B58CE300410F06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		219E633AABC98AA08BD74F0D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6B5939D5F8C9B723887C3D44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,67 +284,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Space Rescuer-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B2EEBB156C3AD87D6A188E32 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Space RescuerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC935494045D113FEA032804 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E00118D52353A212AC1E5A39 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Space Rescuer-Space RescuerUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,44 +317,17 @@
 				D25A367326B5CB9B00410F06 /* UIViewControllerProtocol.swift in Sources */,
 				D25A363826B58CE100410F06 /* GameScene.swift in Sources */,
 				D25A366F26B5992800410F06 /* GameSceneDelegate.swift in Sources */,
+				D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */,
 				D25A363A26B58CE100410F06 /* GameViewController.swift in Sources */,
 				D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */,
 				D25A366A26B5964C00410F06 /* Constants.swift in Sources */,
+				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
 				D25A366C26B597B500410F06 /* ConstraintViewDSL Extension.swift in Sources */,
 				D25A367126B5CB4A00410F06 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D25A364126B58CE300410F06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D25A364A26B58CE300410F06 /* Space_RescuerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D25A364C26B58CE300410F06 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D25A365526B58CE300410F06 /* Space_RescuerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D25A364726B58CE300410F06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D25A362D26B58CE100410F06 /* Space Rescuer */;
-			targetProxy = D25A364626B58CE300410F06 /* PBXContainerItemProxy */;
-		};
-		D25A365226B58CE300410F06 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D25A362D26B58CE100410F06 /* Space Rescuer */;
-			targetProxy = D25A365126B58CE300410F06 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D25A365726B58CE300410F06 /* Debug */ = {
@@ -700,94 +488,6 @@
 			};
 			name = Release;
 		};
-		D25A365D26B58CE300410F06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3770C709A8F5D43B114854C9 /* Pods-Space RescuerTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CUJ73BXL42;
-				INFOPLIST_FILE = "Space RescuerTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kurking.Space-RescuerTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Space Rescuer.app/Space Rescuer";
-			};
-			name = Debug;
-		};
-		D25A365E26B58CE300410F06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CUJ73BXL42;
-				INFOPLIST_FILE = "Space RescuerTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kurking.Space-RescuerTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Space Rescuer.app/Space Rescuer";
-			};
-			name = Release;
-		};
-		D25A366026B58CE300410F06 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CUJ73BXL42;
-				INFOPLIST_FILE = "Space RescuerUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kurking.Space-RescuerUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Space Rescuer";
-			};
-			name = Debug;
-		};
-		D25A366126B58CE300410F06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA31E859FA1C7311E3DB359C /* Pods-Space Rescuer-Space RescuerUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CUJ73BXL42;
-				INFOPLIST_FILE = "Space RescuerUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kurking.Space-RescuerUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Space Rescuer";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -805,24 +505,6 @@
 			buildConfigurations = (
 				D25A365A26B58CE300410F06 /* Debug */,
 				D25A365B26B58CE300410F06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D25A365C26B58CE300410F06 /* Build configuration list for PBXNativeTarget "Space RescuerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D25A365D26B58CE300410F06 /* Debug */,
-				D25A365E26B58CE300410F06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D25A365F26B58CE300410F06 /* Build configuration list for PBXNativeTarget "Space RescuerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D25A366026B58CE300410F06 /* Debug */,
-				D25A366126B58CE300410F06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

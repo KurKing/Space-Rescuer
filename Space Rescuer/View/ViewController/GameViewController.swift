@@ -16,14 +16,15 @@ class GameViewController: UIViewController {
             gameScene.userDelegate = viewModel
         }
     }
-    private let gameScene = GameScene()
-
+    let gameScene = GameScene()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroungImage()
         setupScene()
     }
+    
 }
 
 //MARK: - UIViewControllerProtocol
@@ -41,13 +42,12 @@ private extension GameViewController {
     }
     
     func setupScene() {
-        
         gameScene.setUp(size: view.bounds.size)
-
+        
         let sceneView = SKView(frame: view.frame)
         sceneView.ignoresSiblingOrder = false
         sceneView.backgroundColor = .clear
-
+        
         view.addSubview(sceneView)
         sceneView.presentScene(gameScene)
     }

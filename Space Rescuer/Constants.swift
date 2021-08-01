@@ -8,5 +8,7 @@
 import Foundation
 
 extension String {
-    static var backgroungImageName: String { "bg" }
+    static var backgroungImageName = "bg"
+    static var spaceShip = "redSpaceShip"
+    static let meteor = "meteor"
 }

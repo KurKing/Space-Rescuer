@@ -8,16 +8,4 @@ target 'Space Rescuer' do
   # Pods for Space Rescuer
   pod 'SnapKit', '~> 5.0.0'
 
-
-  target 'Space RescuerTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'SnapKit', '~> 5.0.0'
-  end
-
-  target 'Space RescuerUITests' do
-    # Pods for testing
-    pod 'SnapKit', '~> 5.0.0'
-  end
-
 end

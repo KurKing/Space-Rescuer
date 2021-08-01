@@ -9,7 +9,7 @@ import UIKit
 
 class ViewModel {
     
-    private weak var viewController: UIViewControllerProtocol?
+    private(set) weak var viewController: UIViewControllerProtocol?
     
     init(viewController: UIViewControllerProtocol?) {
         self.viewController = viewController

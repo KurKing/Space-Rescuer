@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol GameSceneDelegate {
+protocol GameSceneDelegate: AnyObject {
 
 }
