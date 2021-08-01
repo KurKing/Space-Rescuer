@@ -12,21 +12,23 @@ class Meteor: SKSpriteNode {
         let texture = SKTexture(imageNamed: .meteor)
         super.init(texture: texture, color: .clear, size: size)
         
+        name = .meteor
         addColorAnimation()
+        setUpPhysics(texture: texture)
     }
     
     convenience init(parentFrameSize: CGSize, meteorSize: CGSize) {
         self.init(size: meteorSize)
         
-        position.x = CGFloat.random(in: -frame.width/2...frame.width/2)
-        position.y = frame.height/2 + size.height
+        position.x = CGFloat.random(in: -parentFrameSize.width/2...parentFrameSize.width/2)
+        position.y = parentFrameSize.height/2 + size.height
     }
     
     convenience init(parentFrameSize: CGSize) {
         let widthAndHeigth = Int.random(in: 20...90)
-        let meteorSize = CGSize(width: widthAndHeigth, height: widthAndHeigth)
-        
-        self.init(parentFrameSize: parentFrameSize, meteorSize: meteorSize)
+
+        self.init(parentFrameSize: parentFrameSize, meteorSize:
+                    CGSize(width: widthAndHeigth, height: widthAndHeigth))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,18 +41,29 @@ class Meteor: SKSpriteNode {
         
         run(SKAction.colorize(with: randomColor, colorBlendFactor: 0.2, duration: 0))
     }
+    
+    func setUpPhysics(texture: SKTexture) {
+        physicsBody = SKPhysicsBody(texture: texture, size: size)
+        
+        physicsBody?.categoryBitMask = .meteor
+        physicsBody?.collisionBitMask = .spaceShip | .meteor
+        physicsBody?.contactTestBitMask = .spaceShip
+        
+        physicsBody?.angularVelocity = CGFloat.random(in: -5...5)
+        physicsBody?.velocity.dx = CGFloat.random(in: -100...100)
+    }
 }
 
 //MARK: - Meteor creation action
 extension Meteor {
-    static func addMeteorCreationAction(to parent: SKScene) {
+    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval) {
         let meteorSequensAction = SKAction.sequence([
             SKAction.run {
                 let meteor = Meteor(parentFrameSize: parent.frame.size)
                 meteor.zPosition = 1
                 parent.addChild(meteor)
             },
-            SKAction.wait(forDuration: 0.5, withRange: 0.5)
+            SKAction.wait(forDuration: creationDuration, withRange: 0.5)
         ])
         
         parent.run(SKAction.repeatForever(meteorSequensAction))

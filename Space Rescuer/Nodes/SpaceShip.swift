@@ -12,6 +12,9 @@ class SpaceShip: SKSpriteNode {
     init() {
         let texture = SKTexture(imageNamed: .spaceShip)
         super.init(texture: texture, color: .clear, size: SpaceShip.textureSize)
+        
+        name = .spaceShip
+        setUpPhysics(texture: texture)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +30,15 @@ class SpaceShip: SKSpriteNode {
     private func timeForMoveCalculate(startPoint: CGPoint, finishPoint: CGPoint) -> TimeInterval {
         return TimeInterval(
             sqrt(pow(startPoint.x-finishPoint.x, 2)+pow(startPoint.y-finishPoint.y, 2))/800.0)
+    }
+    
+    private func setUpPhysics(texture: SKTexture) {
+        physicsBody = SKPhysicsBody(texture: texture, size: size)
+        physicsBody?.isDynamic = false
+        
+        physicsBody?.categoryBitMask = .spaceShip
+        physicsBody?.collisionBitMask = .meteor
+        physicsBody?.contactTestBitMask = .meteor
     }
 }
 

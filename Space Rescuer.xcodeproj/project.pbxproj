@@ -15,13 +15,13 @@
 		D25A363F26B58CE300410F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D25A363E26B58CE300410F06 /* Assets.xcassets */; };
 		D25A366726B58F1300410F06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25A366626B58F1300410F06 /* Launch Screen.storyboard */; };
 		D25A366A26B5964C00410F06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366926B5964C00410F06 /* Constants.swift */; };
-		D25A366C26B597B500410F06 /* ConstraintViewDSL Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */; };
 		D25A366F26B5992800410F06 /* GameSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A366E26B5992800410F06 /* GameSceneDelegate.swift */; };
 		D25A367126B5CB4A00410F06 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367026B5CB4A00410F06 /* ViewModel.swift */; };
 		D25A367326B5CB9B00410F06 /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */; };
 		D25A367726B5CE4200410F06 /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = D25A367626B5CE4200410F06 /* Stars.sks */; };
 		D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367C26B6941600410F06 /* SpaceShip.swift */; };
 		D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367E26B69BAE00410F06 /* Meteor.swift */; };
+		D25A368126B6AA7F00410F06 /* Cheats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368026B6AA7F00410F06 /* Cheats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,13 +40,13 @@
 		D25A364026B58CE300410F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25A366626B58F1300410F06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D25A366926B5964C00410F06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintViewDSL Extension.swift"; sourceTree = "<group>"; };
 		D25A366E26B5992800410F06 /* GameSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneDelegate.swift; sourceTree = "<group>"; };
 		D25A367026B5CB4A00410F06 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D25A367226B5CB9B00410F06 /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 		D25A367626B5CE4200410F06 /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
 		D25A367C26B6941600410F06 /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		D25A367E26B69BAE00410F06 /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
+		D25A368026B6AA7F00410F06 /* Cheats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cheats.swift; sourceTree = "<group>"; };
 		DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer_Space_RescuerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space RescuerTests.release.xcconfig"; path = "Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 				D25A366326B58EAB00410F06 /* Scene */,
 				D25A366426B58EBF00410F06 /* ViewModel */,
 				D25A366526B58EFC00410F06 /* View */,
-				D25A367A26B5DBE600410F06 /* Extension */,
 				D25A366926B5964C00410F06 /* Constants.swift */,
+				D25A368026B6AA7F00410F06 /* Cheats.swift */,
 				D25A363E26B58CE300410F06 /* Assets.xcassets */,
 				D25A364026B58CE300410F06 /* Info.plist */,
 			);
@@ -170,14 +170,6 @@
 				D25A363726B58CE100410F06 /* GameScene.swift */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		D25A367A26B5DBE600410F06 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				D25A366B26B597B500410F06 /* ConstraintViewDSL Extension.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		D25A367B26B693E700410F06 /* Nodes */ = {
@@ -319,10 +311,10 @@
 				D25A366F26B5992800410F06 /* GameSceneDelegate.swift in Sources */,
 				D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */,
 				D25A363A26B58CE100410F06 /* GameViewController.swift in Sources */,
+				D25A368126B6AA7F00410F06 /* Cheats.swift in Sources */,
 				D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */,
 				D25A366A26B5964C00410F06 /* Constants.swift in Sources */,
 				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
-				D25A366C26B597B500410F06 /* ConstraintViewDSL Extension.swift in Sources */,
 				D25A367126B5CB4A00410F06 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

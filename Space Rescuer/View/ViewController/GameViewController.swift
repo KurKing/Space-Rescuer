@@ -38,7 +38,9 @@ private extension GameViewController {
         let imageView = UIImageView(image: UIImage(named: .backgroungImageName))
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
-        imageView.snp.setSizeEqualToSuperView()
+        imageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     func setupScene() {

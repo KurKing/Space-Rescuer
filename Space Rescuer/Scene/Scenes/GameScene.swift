@@ -22,16 +22,16 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        
+                
         createStars()
+        setUpPhysics()
         
         spaceShip.zPosition = 1
         addChild(spaceShip)
         
-        Meteor.addMeteorCreationAction(to: self)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: 0.5)
     }
     
-    //MARK: - Touches
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             spaceShip.move(to: touch.location(in: self))
@@ -39,6 +39,33 @@ class GameScene: SKScene {
     }
 }
 
+//MARK: - Physics
+extension GameScene: SKPhysicsContactDelegate {
+    
+    override func didSimulatePhysics() {
+        enumerateChildNodes(withName: "meteor") { (meteor, stop) in
+            let heigth = UIScreen.main.bounds.height
+            
+            if meteor.position.y < -heigth/2-meteor.frame.height {
+                meteor.removeFromParent()
+            }
+        }
+    }
+
+    func didBegin(_ contact: SKPhysicsContact) {
+        if isCollisionHappend(contact) {
+            // TODO: LOSE
+            removeAllActions()
+        }
+    }
+    
+    private func isCollisionHappend(_ contact: SKPhysicsContact) -> Bool {
+        return (contact.bodyA.categoryBitMask == .spaceShip || contact.bodyB.categoryBitMask == .spaceShip) && !Cheats.isCheatCodeEntered
+    }
+
+}
+
+//MARK: - SetUp
 private extension GameScene {
     func createStars() {
         if let stars = SKSpriteNode(fileNamed: "Stars") {
@@ -46,5 +73,10 @@ private extension GameScene {
             stars.zPosition = 0
             addChild(stars)
         }
+    }
+    
+    func setUpPhysics() {
+        physicsWorld.contactDelegate = self
+        physicsWorld.gravity = CGVector(dx: 0, dy: -3)
     }
 }
