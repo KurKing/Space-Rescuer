@@ -112,6 +112,10 @@ extension GameScene: GameSceneProtocol {
         currentDifficulty = 0.5
         Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
         shouldTouchesBeChecked = true
+        
+        enumerateChildNodes(withName: .astronaut) { (node, _) in
+            node.removeFromParent()
+        }
     }
 }
 

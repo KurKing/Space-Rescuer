@@ -16,12 +16,17 @@ class GameViewController: UIViewController {
             if let userDelegate = viewModel as? GameSceneDelegate {
                 gameScene.userDelegate = userDelegate
             }
+            
+            if let menuViewDelegate = viewModel as? MenuViewDelegate {
+                menuView.delegate = menuViewDelegate
+            }
         }
     }
         
     let gameScene = GameScene()
+    let menuView = MenuView()
     
-    private(set) var setScoreLabelText: ((Int)->())?
+    private let scoreView = ScoreView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +34,28 @@ class GameViewController: UIViewController {
         setBackgroungImage()
         setupScene()
         addScoreLabel()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        viewModel?.startGameButtonPressed()
+        
+        view.addSubview(menuView)
+        menuView.setUp()
+        menuView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
     
 }
 
 //MARK: - UIViewControllerProtocol
 extension GameViewController: GameViewControllerProtocol {
+    func hideMenu() {
+        menuView.isHidden = true
+    }
+    
+    func showMenu() {
+        menuView.isHidden = false
+    }
+    
     func setScore(_ score: Int) {
-        if let closure = setScoreLabelText {
-            closure(score)
-        }
+        scoreView.setScore(score)
     }
     
     var gameSceneInstance: GameSceneProtocol {
@@ -73,38 +86,7 @@ private extension GameViewController {
     }
     
     func addScoreLabel() {
-        let scoreView = UIView()
-        
-        guard let image = UIImage(named: .astronaut) else { return }
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        
-        scoreView.addSubview(imageView)
-        imageView.snp.makeConstraints {
-            $0.size.equalTo(50)
-            
-            [$0.leading, $0.top, $0.bottom].forEach {
-                $0.equalToSuperview()
-            }
-        }
-        
-        let label = UILabel()
-        label.textColor = .white
-        label.backgroundColor = .clear
-        label.font = UIFont(name: .customFontName, size: 40)
-        label.text = "x0"
-        
-        setScoreLabelText = { score in
-            label.text = "x\(score)"
-        }
-        
-        scoreView.addSubview(label)
-        label.snp.makeConstraints {
-            $0.leading.equalTo(imageView.snp.trailing)
-            $0.trailing.equalToSuperview()
-            $0.centerY.equalToSuperview()
-        }
-        
+        scoreView.setUp()
         view.addSubview(scoreView)
         scoreView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(3)

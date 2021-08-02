@@ -10,4 +10,6 @@ import UIKit
 protocol GameViewControllerProtocol: AnyObject {
     var gameSceneInstance: GameSceneProtocol { get }
     func setScore(_ score: Int)
+    func hideMenu()
+    func showMenu()
 }

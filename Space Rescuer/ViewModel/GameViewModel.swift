@@ -19,6 +19,8 @@ class GameViewModel {
     
     private let gameScene: GameSceneProtocol?
     private let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    private let heavyImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+
     private(set) weak var viewController: GameViewControllerProtocol?
     
     init(viewController: GameViewControllerProtocol?) {
@@ -33,9 +35,20 @@ class GameViewModel {
     }
 }
 
+//MARK: - GameViewModelProtocol
 extension GameViewModel: GameViewModelProtocol {
-    func startGameButtonPressed() {
+
+}
+
+//MARK: - MenuViewDelegate
+extension GameViewModel: MenuViewDelegate {
+    func settingsButtonPressed() {
+        print("settingsButtonPressed")
+    }
+    
+    func playButtonPressed() {
         score = 0
+        viewController?.hideMenu()
         gameScene?.startNewGame()
     }
 }
@@ -51,11 +64,11 @@ extension GameViewModel: GameSceneDelegate {
                 self?.isScoreCountingEnable = true
             }
         }
-        
     }
     
     func meteorCollisionHappened() {
         score = 0
-        gameScene?.startNewGame()
+        heavyImpactFeedbackGenerator.impactOccurred()
+        viewController?.showMenu()
     }
 }
