@@ -23,7 +23,6 @@
 		D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A367E26B69BAE00410F06 /* Meteor.swift */; };
 		D25A368126B6AA7F00410F06 /* Cheats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368026B6AA7F00410F06 /* Cheats.swift */; };
 		D25A368326B6C14900410F06 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368226B6C14800410F06 /* Astronaut.swift */; };
-		D25A368526B6CFEC00410F06 /* GameSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368426B6CFEC00410F06 /* GameSceneProtocol.swift */; };
 		D25A368726B6D1C400410F06 /* GameViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368626B6D1C400410F06 /* GameViewModelProtocol.swift */; };
 		D25A368B26B6D99A00410F06 /* Georama-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D25A368826B6D85600410F06 /* Georama-VariableFont_wdth,wght.ttf */; };
 		D25A368F26B6EAC800410F06 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A368E26B6EAC800410F06 /* ScoreView.swift */; };
@@ -32,6 +31,8 @@
 		D2AA0FB626B7BD9D00BD9F3C /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FB526B7BD9D00BD9F3C /* SettingsModel.swift */; };
 		D2AA0FB826B7C40000BD9F3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FB726B7C40000BD9F3C /* SettingsViewController.swift */; };
 		D2AA0FBA26B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FB926B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift */; };
+		D2AA0FBC26B8035700BD9F3C /* GameSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FBB26B8035700BD9F3C /* GameSceneProtocol.swift */; };
+		D2AA0FBF26B8043700BD9F3C /* StringValidationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FBE26B8043700BD9F3C /* StringValidationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +59,6 @@
 		D25A367E26B69BAE00410F06 /* Meteor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		D25A368026B6AA7F00410F06 /* Cheats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cheats.swift; sourceTree = "<group>"; };
 		D25A368226B6C14800410F06 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
-		D25A368426B6CFEC00410F06 /* GameSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameSceneProtocol.swift; path = ../../../../../../Downloads/GameSceneProtocol.swift; sourceTree = "<group>"; };
 		D25A368626B6D1C400410F06 /* GameViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelProtocol.swift; sourceTree = "<group>"; };
 		D25A368826B6D85600410F06 /* Georama-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Georama-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
 		D25A368E26B6EAC800410F06 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
@@ -67,6 +67,8 @@
 		D2AA0FB526B7BD9D00BD9F3C /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		D2AA0FB726B7C40000BD9F3C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D2AA0FB926B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatCodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2AA0FBB26B8035700BD9F3C /* GameSceneProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneProtocol.swift; sourceTree = "<group>"; };
+		D2AA0FBE26B8043700BD9F3C /* StringValidationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidationExtension.swift; sourceTree = "<group>"; };
 		DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer_Space_RescuerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space RescuerTests.release.xcconfig"; path = "Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				D2AA0FB426B7BD6300BD9F3C /* Model */,
 				D25A366426B58EBF00410F06 /* ViewModel */,
 				D25A366526B58EFC00410F06 /* View */,
+				D2AA0FBD26B803EC00BD9F3C /* Extension */,
 				D25A368C26B6DC3300410F06 /* Supporting Files */,
 				D25A364026B58CE300410F06 /* Info.plist */,
 			);
@@ -172,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				D25A366E26B5992800410F06 /* GameSceneDelegate.swift */,
-				D25A368426B6CFEC00410F06 /* GameSceneProtocol.swift */,
+				D2AA0FBB26B8035700BD9F3C /* GameSceneProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -241,6 +244,14 @@
 				D2AA0FB526B7BD9D00BD9F3C /* SettingsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D2AA0FBD26B803EC00BD9F3C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D2AA0FBE26B8043700BD9F3C /* StringValidationExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E322D3A04424D4ED0F2454EA /* Frameworks */ = {
@@ -377,15 +388,16 @@
 				D25A368726B6D1C400410F06 /* GameViewModelProtocol.swift in Sources */,
 				D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */,
 				D25A363A26B58CE100410F06 /* GameViewController.swift in Sources */,
+				D2AA0FBC26B8035700BD9F3C /* GameSceneProtocol.swift in Sources */,
 				D25A368126B6AA7F00410F06 /* Cheats.swift in Sources */,
 				D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */,
-				D25A368526B6CFEC00410F06 /* GameSceneProtocol.swift in Sources */,
 				D25A369126B6EEA700410F06 /* MenuView.swift in Sources */,
 				D2AA0FBA26B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift in Sources */,
 				D25A366A26B5964C00410F06 /* Constants.swift in Sources */,
 				D25A369426B6EEEE00410F06 /* MenuViewDelegate.swift in Sources */,
 				D25A368F26B6EAC800410F06 /* ScoreView.swift in Sources */,
 				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
+				D2AA0FBF26B8043700BD9F3C /* StringValidationExtension.swift in Sources */,
 				D25A367126B5CB4A00410F06 /* GameViewModel.swift in Sources */,
 				D2AA0FB826B7C40000BD9F3C /* SettingsViewController.swift in Sources */,
 			);
