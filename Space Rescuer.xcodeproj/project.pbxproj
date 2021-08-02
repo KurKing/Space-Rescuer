@@ -30,6 +30,8 @@
 		D25A369126B6EEA700410F06 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A369026B6EEA700410F06 /* MenuView.swift */; };
 		D25A369426B6EEEE00410F06 /* MenuViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A369326B6EEEE00410F06 /* MenuViewDelegate.swift */; };
 		D2AA0FB626B7BD9D00BD9F3C /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FB526B7BD9D00BD9F3C /* SettingsModel.swift */; };
+		D2AA0FB826B7C40000BD9F3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FB726B7C40000BD9F3C /* SettingsViewController.swift */; };
+		D2AA0FBA26B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FB926B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		D25A369026B6EEA700410F06 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		D25A369326B6EEEE00410F06 /* MenuViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewDelegate.swift; sourceTree = "<group>"; };
 		D2AA0FB526B7BD9D00BD9F3C /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		D2AA0FB726B7C40000BD9F3C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D2AA0FB926B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatCodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer_Space_RescuerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space RescuerTests.release.xcconfig"; path = "Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D25A363926B58CE100410F06 /* GameViewController.swift */,
+				D2AA0FB726B7C40000BD9F3C /* SettingsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			children = (
 				D25A368E26B6EAC800410F06 /* ScoreView.swift */,
 				D25A369026B6EEA700410F06 /* MenuView.swift */,
+				D2AA0FB926B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -375,11 +381,13 @@
 				D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */,
 				D25A368526B6CFEC00410F06 /* GameSceneProtocol.swift in Sources */,
 				D25A369126B6EEA700410F06 /* MenuView.swift in Sources */,
+				D2AA0FBA26B7EEF400BD9F3C /* CheatCodeCollectionViewCell.swift in Sources */,
 				D25A366A26B5964C00410F06 /* Constants.swift in Sources */,
 				D25A369426B6EEEE00410F06 /* MenuViewDelegate.swift in Sources */,
 				D25A368F26B6EAC800410F06 /* ScoreView.swift in Sources */,
 				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
 				D25A367126B5CB4A00410F06 /* GameViewModel.swift in Sources */,
+				D2AA0FB826B7C40000BD9F3C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

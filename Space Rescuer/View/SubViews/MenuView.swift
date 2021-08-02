@@ -57,11 +57,11 @@ class MenuView: UIView {
         }
     }
     
-    @objc func playButtonPressed() {
+    @objc private func playButtonPressed() {
         delegate?.playButtonPressed()
     }
     
-    @objc func settingsButtonPressed() {
+    @objc private func settingsButtonPressed() {
         delegate?.settingsButtonPressed()
     }
 

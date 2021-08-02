@@ -24,6 +24,8 @@ extension String {
     static let pauseButton = "pause-button"
     static let questionButton = "question-button"
     static let xButton = "x-button"
+    
+    static let title = "Space Rescuer"
 }
 
 extension UInt32 {
@@ -38,4 +40,9 @@ extension CGFloat {
 
 extension UIColor {
     static let menuBgColor = UIColor(named: "MenuBG-color")!
+}
+
+extension Notification.Name {
+    static let unselectMeteorCells = Notification.Name("unselectMeteorCells")
+    static let unselectSpaceShipCells = Notification.Name("unselectSpaceShipCells")
 }

@@ -16,10 +16,6 @@ class GameViewController: UIViewController {
             if let userDelegate = viewModel as? GameSceneDelegate {
                 gameScene.userDelegate = userDelegate
             }
-            
-            if let menuViewDelegate = viewModel as? MenuViewDelegate {
-                menuView.delegate = menuViewDelegate
-            }
         }
     }
         
@@ -35,6 +31,7 @@ class GameViewController: UIViewController {
         setupScene()
         addScoreLabel()
         
+        menuView.delegate = self
         view.addSubview(menuView)
         menuView.setUp()
         menuView.snp.makeConstraints {
@@ -61,6 +58,19 @@ extension GameViewController: GameViewControllerProtocol {
     var gameSceneInstance: GameSceneProtocol {
         gameScene
     }
+}
+
+//MARK: - MenuViewDelegate
+extension GameViewController: MenuViewDelegate {
+    func playButtonPressed() {
+        viewModel?.playButtonPressed()
+    }
+    
+    func settingsButtonPressed() {
+        present(SettingsViewController(), animated: true, completion: nil)
+    }
+    
+    
 }
 
 //MARK: - Set up

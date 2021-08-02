@@ -10,6 +10,7 @@ import UIKit
 struct SettingsModel {
     let meteorColor: MeteorColor
     let spaceShip: SpaceShipSpecifications
+    let isCheatCodeEntered: Bool
 }
 
 enum MeteorColor {

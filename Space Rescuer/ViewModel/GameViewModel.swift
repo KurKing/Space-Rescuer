@@ -37,15 +37,6 @@ class GameViewModel {
 
 //MARK: - GameViewModelProtocol
 extension GameViewModel: GameViewModelProtocol {
-
-}
-
-//MARK: - MenuViewDelegate
-extension GameViewModel: MenuViewDelegate {
-    func settingsButtonPressed() {
-        print("settingsButtonPressed")
-    }
-    
     func playButtonPressed() {
         score = 0
         viewController?.hideMenu()
