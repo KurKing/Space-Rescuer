@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
             }
         }
     }
-        
+    
     let gameScene = GameScene()
     let menuView = MenuView()
     
@@ -67,10 +67,10 @@ extension GameViewController: MenuViewDelegate {
     }
     
     func settingsButtonPressed() {
-        present(SettingsViewController(), animated: true, completion: nil)
+        if let viewModel = viewModel {
+            present(SettingsViewController(viewModel: SettingsViewModel(viewModelToSetup: viewModel.customizableViewModel)), animated: true, completion: nil)
+        }
     }
-    
-    
 }
 
 //MARK: - Set up

@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     weak var userDelegate: GameSceneDelegate?
     private var shouldTouchesBeChecked = false
+    private var isCollisionActivated = true
     private var currentDifficulty: TimeInterval = 0.5
     
     private let spaceShip = SpaceShip()
@@ -70,6 +71,14 @@ extension GameScene: SKPhysicsContactDelegate {
             return
         }
         
+        for i in [contact.bodyA, contact.bodyB] {
+            if let node = i.node {
+                if node.name == .meteor {
+                    return
+                }
+            }
+        }
+        
         removeAstronaut(contact)
         userDelegate?.astronautCollisionHappened()
     }
@@ -95,13 +104,17 @@ extension GameScene: SKPhysicsContactDelegate {
         let aBitMask = contact.bodyA.categoryBitMask
         let bBitMask = contact.bodyB.categoryBitMask
         
-        return ((aBitMask == .spaceShip && bBitMask == .meteor) || (bBitMask == .spaceShip && aBitMask == .meteor)) && !Cheats.shared.isCollisionCheatCodeActivated
+        return ((aBitMask == .spaceShip && bBitMask == .meteor) || (bBitMask == .spaceShip && aBitMask == .meteor)) && isCollisionActivated
     }
     
 }
 
 //MARK: - GameSceneProtocol
 extension GameScene: GameSceneProtocol {
+    func turnOffColision() {
+        isCollisionActivated = false
+    }
+    
     func increaseDifficulty() {
         currentDifficulty -= 0.1
         removeAction(forKey: .meteorFallingAction)

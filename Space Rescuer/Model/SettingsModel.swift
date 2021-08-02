@@ -8,9 +8,13 @@
 import UIKit
 
 struct SettingsModel {
-    let meteorColor: MeteorColor
-    let spaceShip: SpaceShipSpecifications
-    let isCheatCodeEntered: Bool
+    var meteorColor: MeteorColor
+    var spaceShip: SpaceShipSpecifications
+    var isCheatCodeEntered: Bool
+    
+    static var defaultSettings: SettingsModel {
+        SettingsModel(meteorColor: .none, spaceShip: .red, isCheatCodeEntered: false)
+    }
 }
 
 enum MeteorColor {

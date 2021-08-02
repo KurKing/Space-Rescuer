@@ -35,8 +35,21 @@ class GameViewModel {
     }
 }
 
+//MARK: - СustomizableViewModel
+extension GameViewModel: СustomizableViewModel {
+    
+    func customize(with settings: SettingsModel) {
+        if settings.isCheatCodeEntered {
+            gameScene?.turnOffColision()
+        }
+    }
+}
+
 //MARK: - GameViewModelProtocol
 extension GameViewModel: GameViewModelProtocol {
+    
+    var customizableViewModel: СustomizableViewModel { self }
+    
     func playButtonPressed() {
         score = 0
         viewController?.hideMenu()
@@ -46,6 +59,7 @@ extension GameViewModel: GameViewModelProtocol {
 
 //MARK: - GameSceneDelegate
 extension GameViewModel: GameSceneDelegate {
+    
     func astronautCollisionHappened() {
         if isScoreCountingEnable {
             lightImpactFeedbackGenerator.impactOccurred()

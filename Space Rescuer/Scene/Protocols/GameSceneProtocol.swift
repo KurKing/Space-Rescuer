@@ -10,4 +10,5 @@ import Foundation
 protocol GameSceneProtocol {
     func startNewGame()
     func increaseDifficulty()
+    func turnOffColision()
 }
