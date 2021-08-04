@@ -45,7 +45,7 @@ extension SettingsViewController: SettingsViewControllerProtocol {
     
     func showSuccessCheatCodeAlert() {
         view.endEditing(true)
-        let alert = UIAlertController(title: "Collision is disabled!", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Now your ship cannot be broken!", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
