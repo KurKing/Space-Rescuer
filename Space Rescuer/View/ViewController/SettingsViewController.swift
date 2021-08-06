@@ -74,11 +74,11 @@ extension SettingsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //MARK: TODO
         if indexPath.section == 2 {
-            let cheatCodeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CheatCodeCollectionViewCell
+            let cheatCodeCell = collectionView.dequeueCell(type: CheatCodeCollectionViewCell.self, indexPath: indexPath)
             cheatCodeCell.buttonPressedComplition = viewModel.enterCheatCode(_:)
             return cheatCodeCell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueCell(type: UICollectionViewCell.self, indexPath: indexPath)
         cell.backgroundColor = [UIColor.red, UIColor.yellow,UIColor.green][(indexPath.row+indexPath.section)%3]
         return cell
     }
@@ -192,10 +192,9 @@ private extension SettingsViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
 
-        //MARK: TODO
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(CheatCodeCollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
-        
+        collectionView.registerCell(type: UICollectionViewCell.self)
+        collectionView.registerCell(type: CheatCodeCollectionViewCell.self)
+                
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)

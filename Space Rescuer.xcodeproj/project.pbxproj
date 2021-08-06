@@ -35,6 +35,8 @@
 		D2AA0FC126B8308E00BD9F3C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FC026B8308E00BD9F3C /* SettingsViewModel.swift */; };
 		D2AA0FC426B8358E00BD9F3C /* СustomizableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FC326B8358E00BD9F3C /* СustomizableViewModel.swift */; };
 		D2AA0FC626B83AC800BD9F3C /* SettingsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FC526B83AC800BD9F3C /* SettingsViewControllerProtocol.swift */; };
+		D2F3121926BD60E900294197 /* СollectionViewRegisterCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3121826BD60E900294197 /* СollectionViewRegisterCellExtension.swift */; };
+		D2F3121C26BD622500294197 /* ReusableUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3121B26BD622500294197 /* ReusableUICollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		D2AA0FC026B8308E00BD9F3C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D2AA0FC326B8358E00BD9F3C /* СustomizableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomizableViewModel.swift"; sourceTree = "<group>"; };
 		D2AA0FC526B83AC800BD9F3C /* SettingsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerProtocol.swift; sourceTree = "<group>"; };
+		D2F3121826BD60E900294197 /* СollectionViewRegisterCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СollectionViewRegisterCellExtension.swift"; sourceTree = "<group>"; };
+		D2F3121B26BD622500294197 /* ReusableUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableUICollectionViewCell.swift; sourceTree = "<group>"; };
 		DE5CBC7B64878EB91835E434 /* Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer-Space RescuerUITests/Pods-Space Rescuer-Space RescuerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9BFD0DBBCCE103A78C023E7 /* Pods_Space_Rescuer_Space_RescuerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer_Space_RescuerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE50805A0D69069F944F0F3D /* Pods-Space RescuerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space RescuerTests.release.xcconfig"; path = "Target Support Files/Pods-Space RescuerTests/Pods-Space RescuerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				D2AA0FB426B7BD6300BD9F3C /* Model */,
 				D25A366426B58EBF00410F06 /* ViewModel */,
 				D25A366526B58EFC00410F06 /* View */,
+				D2F3121A26BD61F400294197 /* Protocols */,
 				D2AA0FBD26B803EC00BD9F3C /* Extension */,
 				D25A368C26B6DC3300410F06 /* Supporting Files */,
 				D25A364026B58CE300410F06 /* Info.plist */,
@@ -255,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AA0FBE26B8043700BD9F3C /* StringValidationExtension.swift */,
+				D2F3121826BD60E900294197 /* СollectionViewRegisterCellExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,6 +270,14 @@
 			children = (
 				D25A368626B6D1C400410F06 /* GameViewModelProtocol.swift */,
 				D2AA0FC326B8358E00BD9F3C /* СustomizableViewModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D2F3121A26BD61F400294197 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D2F3121B26BD622500294197 /* ReusableUICollectionViewCell.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -395,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D25A367326B5CB9B00410F06 /* GameViewControllerProtocol.swift in Sources */,
+				D2F3121C26BD622500294197 /* ReusableUICollectionViewCell.swift in Sources */,
 				D25A368326B6C14900410F06 /* Astronaut.swift in Sources */,
 				D2AA0FB626B7BD9D00BD9F3C /* SettingsModel.swift in Sources */,
 				D25A363826B58CE100410F06 /* GameScene.swift in Sources */,
@@ -413,6 +428,7 @@
 				D2AA0FC426B8358E00BD9F3C /* СustomizableViewModel.swift in Sources */,
 				D2AA0FBF26B8043700BD9F3C /* StringValidationExtension.swift in Sources */,
 				D25A367126B5CB4A00410F06 /* GameViewModel.swift in Sources */,
+				D2F3121926BD60E900294197 /* СollectionViewRegisterCellExtension.swift in Sources */,
 				D2AA0FC626B83AC800BD9F3C /* SettingsViewControllerProtocol.swift in Sources */,
 				D2AA0FB826B7C40000BD9F3C /* SettingsViewController.swift in Sources */,
 				D2AA0FC126B8308E00BD9F3C /* SettingsViewModel.swift in Sources */,
