@@ -36,7 +36,7 @@ class CheatCodeCollectionViewCell: UICollectionViewCell {
     override var canBecomeFocused: Bool { false }
     
     override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         
         backgroundColor = .clear
         

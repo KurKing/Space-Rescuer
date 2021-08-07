@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    var viewModel: SettingsViewModel
+    private(set) var viewModel: SettingsViewModel
     private var collectionView: UICollectionView?
     
     init(viewModel: SettingsViewModel) {
@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
         super.viewWillDisappear(animated)
         viewModel.willDismiss()
     }
-
+    
 }
 
 //MARK: - SettingsViewControllerProtocol
@@ -55,7 +55,7 @@ extension SettingsViewController: SettingsViewControllerProtocol {
 extension SettingsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,19 +67,29 @@ extension SettingsViewController: UICollectionViewDataSource {
         case 2:
             return 1
         default:
-            return 0
+            return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //MARK: TODO
         if indexPath.section == 2 {
             let cheatCodeCell = collectionView.dequeueCell(type: CheatCodeCollectionViewCell.self, indexPath: indexPath)
             cheatCodeCell.buttonPressedComplition = viewModel.enterCheatCode(_:)
             return cheatCodeCell
         }
-        let cell = collectionView.dequeueCell(type: UICollectionViewCell.self, indexPath: indexPath)
-        cell.backgroundColor = [UIColor.red, UIColor.yellow,UIColor.green][(indexPath.row+indexPath.section)%3]
+        
+        if indexPath.section == 3 {
+            return collectionView.dequeueCell(type: UICollectionViewCell.self, indexPath: indexPath)
+        }
+        
+        let cell = collectionView.dequeueCell(type: GameNodeCollectionViewCell.self, indexPath: indexPath)
+        
+        if indexPath.section == 1 {
+            cell.setData(indexPath.row == 0 ? .red : .blue)
+        } else {
+            cell.setData([MeteorColor.none, MeteorColor.green, MeteorColor.red, MeteorColor.yellow, MeteorColor.random][indexPath.row])
+        }
+
         return cell
     }
 }
@@ -99,8 +109,8 @@ private extension SettingsViewController {
         collectionView?.snp.updateConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10-keyboardFrame.height)
         }
-        collectionView?.scrollToItem(at: IndexPath(row: 0, section: 2), at: .top, animated: true)
         view.layoutIfNeeded()
+        collectionView?.scrollToItem(at: IndexPath(row: 0, section: 3), at: .top, animated: true)
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -123,6 +133,10 @@ extension SettingsViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: view.bounds.width-20, height: 70)
         }
         
+        if indexPath.section == 3 {
+            return CGSize(width: view.bounds.width-20, height: 30)
+        }
+        
         let sizeConstant = (view.bounds.width-20)/2
         return CGSize(width: sizeConstant, height: sizeConstant)
     }
@@ -131,7 +145,7 @@ extension SettingsViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegate
 extension SettingsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -191,15 +205,16 @@ private extension SettingsViewController {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-
+        
         collectionView.registerCell(type: UICollectionViewCell.self)
         collectionView.registerCell(type: CheatCodeCollectionViewCell.self)
-                
+        collectionView.registerCell(type: GameNodeCollectionViewCell.self)
+        
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(10)
-
+            
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-10)
         }

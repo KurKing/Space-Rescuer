@@ -13,7 +13,7 @@ class SpaceShip: SKSpriteNode {
     
     init() {
         let texture = SKTexture(imageNamed: .redSpaceShip)
-        super.init(texture: texture, color: .clear, size: SpaceShip.textureSize)
+        super.init(texture: texture, color: .clear, size: SpaceShip.defualtTextureSize)
         
         name = .spaceShip
         setUpPhysics(texture: texture)
@@ -50,7 +50,9 @@ class SpaceShip: SKSpriteNode {
 }
 
 //MARK: - Texture Size
-private extension SpaceShip {
-    private static let spaceShipWidth = 50
-    static let textureSize = CGSize(width: spaceShipWidth, height: spaceShipWidth*175/101)
+extension SpaceShip {
+    static let defualtTextureSize = countSizeForWidth(50)
+    static func countSizeForWidth(_ width: CGFloat) -> CGSize {
+        CGSize(width: width, height: width*175/101)
+    }
 }

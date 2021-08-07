@@ -8,38 +8,35 @@
 import SpriteKit
 
 class Meteor: SKSpriteNode {
-    init(size: CGSize) {
+    init(size: CGSize, color: UIColor) {
         let texture = SKTexture(imageNamed: .meteor)
         super.init(texture: texture, color: .clear, size: size)
         
         name = .meteor
-        addColorAnimation()
+        addColorAnimation(color: color)
         setUpPhysics(texture: texture)
     }
     
-    convenience init(parentFrameSize: CGSize, meteorSize: CGSize) {
-        self.init(size: meteorSize)
+    convenience init(parentFrameSize: CGSize, meteorSize: CGSize, color: UIColor) {
+        self.init(size: meteorSize, color: color)
         
         position.x = CGFloat.random(in: -parentFrameSize.width/2...parentFrameSize.width/2)
         position.y = parentFrameSize.height/2 + size.height
     }
     
-    convenience init(parentFrameSize: CGSize) {
+    convenience init(parentFrameSize: CGSize, color: UIColor) {
         let widthAndHeigth = Int.random(in: 20...90)
 
         self.init(parentFrameSize: parentFrameSize, meteorSize:
-                    CGSize(width: widthAndHeigth, height: widthAndHeigth))
+                    CGSize(width: widthAndHeigth, height: widthAndHeigth), color: color)
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    private func addColorAnimation() {
-        let randomColor = [UIColor.red, UIColor.yellow,
-                           UIColor.green, UIColor.clear].randomElement()!
-        
-        run(SKAction.colorize(with: randomColor, colorBlendFactor: 0.2, duration: 0))
+    private func addColorAnimation(color: UIColor) {
+        run(SKAction.colorize(with: color, colorBlendFactor: 0.2, duration: 0))
     }
     
     private func setUpPhysics(texture: SKTexture) {
@@ -56,10 +53,10 @@ class Meteor: SKSpriteNode {
 
 //MARK: - Meteor creation action
 extension Meteor {
-    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval) {
+    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval, color: MeteorColor) {
         let meteorSequensAction = SKAction.sequence([
             SKAction.run {
-                let meteor = Meteor(parentFrameSize: parent.frame.size)
+                let meteor = Meteor(parentFrameSize: parent.frame.size, color: color.uiColor)
                 meteor.zPosition = 1
                 parent.addChild(meteor)
             },
