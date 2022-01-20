@@ -40,20 +40,20 @@ class MenuView: UIView {
         addSubview(playButton)
         playButton.snp.makeConstraints {
             $0.size.equalTo(120)
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(20)
+            $0.center.equalToSuperview()
+//            $0.top.equalToSuperview().offset(20)
         }
         
-        addSubview(settingButton)
-        settingButton.snp.makeConstraints {
-            $0.size.equalTo(80)
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-20)
-        }
+//        addSubview(settingButton)
+//        settingButton.snp.makeConstraints {
+//            $0.size.equalTo(80)
+//            $0.centerX.equalToSuperview()
+//            $0.bottom.equalToSuperview().offset(-20)
+//        }
         
         snp.makeConstraints {
             $0.width.equalTo(180)
-            $0.height.equalTo(260)
+            $0.height.equalTo(180)
         }
     }
     
