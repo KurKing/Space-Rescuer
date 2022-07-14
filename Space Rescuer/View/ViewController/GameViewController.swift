@@ -66,10 +66,8 @@ extension GameViewController: MenuViewDelegate {
         viewModel?.playButtonPressed()
     }
     
-    func settingsButtonPressed() {
-        if let viewModel = viewModel {
-            present(SettingsViewController(viewModel: SettingsViewModel(viewModelToSetup: viewModel.customizableViewModel)), animated: true, completion: nil)
-        }
+    func infoButtonPressed() {
+        print("infoButtonPressed")
     }
 }
 

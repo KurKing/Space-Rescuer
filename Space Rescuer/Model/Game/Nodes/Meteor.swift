@@ -53,10 +53,10 @@ class Meteor: SKSpriteNode {
 
 //MARK: - Meteor creation action
 extension Meteor {
-    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval, color: MeteorColor) {
+    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval, color: UIColor = [UIColor.red, UIColor.yellow, UIColor.green, UIColor.clear].randomElement()!) {
         let meteorSequensAction = SKAction.sequence([
             SKAction.run {
-                let meteor = Meteor(parentFrameSize: parent.frame.size, color: color.uiColor)
+                let meteor = Meteor(parentFrameSize: parent.frame.size, color: color)
                 meteor.zPosition = 1
                 parent.addChild(meteor)
             },

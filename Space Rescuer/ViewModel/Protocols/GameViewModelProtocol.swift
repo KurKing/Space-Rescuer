@@ -9,5 +9,4 @@ import Foundation
 
 protocol GameViewModelProtocol {
     func playButtonPressed()
-    var customizableViewModel: СustomizableViewModel { get }
 }

@@ -118,12 +118,12 @@ extension GameScene: GameSceneProtocol {
     func increaseDifficulty() {
         currentDifficulty -= 0.1
         removeAction(forKey: .meteorFallingAction)
-        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty, color: .random)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
     }
     
     func startNewGame() {
         currentDifficulty = 0.5
-        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty, color: .random)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
         shouldTouchesBeChecked = true
         
         enumerateChildNodes(withName: .astronaut) { (node, _) in
