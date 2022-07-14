@@ -1,8 +1,6 @@
 # Space-Rescuer
 Simple SpriteKit game
 
-TODO: settings
-
 <table border=0>
     <tr>
         <td>
