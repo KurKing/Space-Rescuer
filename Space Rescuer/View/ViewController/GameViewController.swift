@@ -8,21 +8,45 @@
 import UIKit
 import SpriteKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class GameViewController: UIViewController {
     
+    let gameScene: GameScene
+    let menuView = MenuView()
+    
     var viewModel: GameViewModelProtocol? {
         didSet {
-            if let userDelegate = viewModel as? GameSceneDelegate {
-                gameScene.userDelegate = userDelegate
-            }
+            viewModel?.gameScene = gameScene
+            
+            viewModel?.score.subscribe(onNext: { [weak self] score in
+                self?.scoreView.scoreLabelText = "x\(score)"
+            }).disposed(by: disposeBag)
+            
+            viewModel?.isMenuHidden.subscribe(onNext: { [weak self] isHidden in
+                self?.menuView.isHidden = isHidden
+            }).disposed(by: disposeBag)
         }
     }
     
-    let gameScene = GameScene()
-    let menuView = MenuView()
-    
     private let scoreView = ScoreView()
+    private let disposeBag = DisposeBag()
+    
+    init(gameScene: GameScene = GameScene()) {
+        self.gameScene = gameScene
+        super.init(nibName: nil, bundle: nil)
+        
+        view.rx.observe(CGRect.self, "bounds")
+            .compactMap({ $0 })
+            .subscribe(onNext: {
+                gameScene.size = $0.size
+            }).disposed(by: disposeBag)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,30 +57,9 @@ class GameViewController: UIViewController {
         
         menuView.delegate = self
         view.addSubview(menuView)
-        menuView.setUp()
         menuView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-    }
-    
-}
-
-//MARK: - UIViewControllerProtocol
-extension GameViewController: GameViewControllerProtocol {
-    func hideMenu() {
-        menuView.isHidden = true
-    }
-    
-    func showMenu() {
-        menuView.isHidden = false
-    }
-    
-    func setScore(_ score: Int) {
-        scoreView.setScore(score)
-    }
-    
-    var gameSceneInstance: GameSceneProtocol {
-        gameScene
     }
 }
 
@@ -83,8 +86,6 @@ private extension GameViewController {
     }
     
     func setupScene() {
-        gameScene.setUp(size: view.bounds.size)
-        
         let sceneView = SKView(frame: view.frame)
         sceneView.ignoresSiblingOrder = false
         sceneView.backgroundColor = .clear
@@ -94,7 +95,6 @@ private extension GameViewController {
     }
     
     func addScoreLabel() {
-        scoreView.setUp()
         view.addSubview(scoreView)
         scoreView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(3)

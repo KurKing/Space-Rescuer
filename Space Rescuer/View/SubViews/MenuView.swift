@@ -8,7 +8,6 @@
 import UIKit
 
 class MenuView: UIView {
-
     var delegate: MenuViewDelegate?
     
     private let playButton: UIButton = {
@@ -33,7 +32,9 @@ class MenuView: UIView {
         return button
     }()
     
-    func setUp() {
+    init() {
+        super.init(frame: .zero)
+        
         layer.cornerRadius = .menuViewCornerRadius
         backgroundColor = .menuBackgroundColor
         
@@ -55,6 +56,10 @@ class MenuView: UIView {
         snp.makeConstraints {
             $0.width.equalTo(180)
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc private func playButtonPressed() {
