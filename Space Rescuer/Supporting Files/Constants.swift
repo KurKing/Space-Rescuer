@@ -20,7 +20,6 @@ extension String {
     static let customFontName = "GeoramaRoman-ExtraCondensedThin_Bold"
     
     static let playButton = "play-button"
-    static let gearButton = "gear-button"
     static let pauseButton = "pause-button"
     static let questionButton = "question-button"
     static let xButton = "x-button"
@@ -39,10 +38,5 @@ extension CGFloat {
 }
 
 extension UIColor {
-    static let menuBgColor = UIColor(named: "MenuBG-color")!
-}
-
-extension Notification.Name {
-    static let unselectMeteorCells = Notification.Name("unselectMeteorCells")
-    static let unselectSpaceShipCells = Notification.Name("unselectSpaceShipCells")
+    static let menuBackgroundColor = UIColor(named: "MenuBG-color")!
 }

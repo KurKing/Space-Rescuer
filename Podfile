@@ -7,5 +7,7 @@ target 'Space Rescuer' do
 
   # Pods for Space Rescuer
   pod 'SnapKit', '~> 5.0.0'
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
 
 end

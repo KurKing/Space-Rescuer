@@ -9,9 +9,20 @@ import UIKit
 
 class ScoreView: UIView {
     
+    var scoreLabelText: String? {
+        set {
+            label.text = newValue
+        }
+        get {
+            label.text
+        }
+    }
+    
     private let label = UILabel()
-
-    func setUp() {
+    
+    init() {
+        super.init(frame: .zero)
+        
         guard let image = UIImage(named: .astronaut) else { return }
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
@@ -38,8 +49,7 @@ class ScoreView: UIView {
         }
     }
     
-    func setScore(_ score: Int) {
-        label.text = "x\(score)"
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
 }

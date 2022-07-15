@@ -8,13 +8,11 @@
 import SpriteKit
 
 class SpaceShip: SKSpriteNode {
-    
-    private var speedDivider = 800
+    private let speedDivider = 800
     
     init() {
         let texture = SKTexture(imageNamed: .redSpaceShip)
         super.init(texture: texture, color: .clear, size: SpaceShip.defualtTextureSize)
-        
         name = .spaceShip
         setUpPhysics(texture: texture)
     }
@@ -27,11 +25,6 @@ class SpaceShip: SKSpriteNode {
         run(SKAction.move(to: target,
                           duration: timeForMoveCalculate(startPoint: position, finishPoint: target))
         )
-    }
-    
-    func setSpecifications(_ specifications: SpaceShipSpecifications) {
-        speedDivider = specifications.speedDivider
-        texture = SKTexture(imageNamed: specifications.textureName)
     }
     
     private func timeForMoveCalculate(startPoint: CGPoint, finishPoint: CGPoint) -> TimeInterval {
@@ -50,7 +43,7 @@ class SpaceShip: SKSpriteNode {
 }
 
 //MARK: - Texture Size
-extension SpaceShip {
+private extension SpaceShip {
     static let defualtTextureSize = countSizeForWidth(50)
     static func countSizeForWidth(_ width: CGFloat) -> CGSize {
         CGSize(width: width, height: width*175/101)

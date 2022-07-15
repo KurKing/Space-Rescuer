@@ -9,5 +9,5 @@ import Foundation
 
 protocol MenuViewDelegate {
     func playButtonPressed()
-    func settingsButtonPressed()
+    func infoButtonPressed()
 }

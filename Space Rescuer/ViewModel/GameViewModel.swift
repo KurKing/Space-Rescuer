@@ -5,75 +5,55 @@
 //  Created by Oleksiy on 31.07.2021.
 //
 
+import RxSwift
+import RxRelay
 import UIKit
 
 class GameViewModel {
-    
-    var isScoreCountingEnable = true
-    private var score = 0 {
+    weak var gameScene: GameSceneProtocol? {
         didSet {
-            viewController?.setScore(score)
-            increaseDifficultyIfNeeded()
+            setupSubscribersForGameScene()
         }
     }
     
-    private let gameScene: GameSceneProtocol?
+    fileprivate let _score = BehaviorRelay(value: 0)
+    fileprivate let _isMenuHidden = BehaviorRelay(value: false)
+    private let disposeBag = DisposeBag()
+    
     private let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
     private let heavyImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-
-    private(set) weak var viewController: GameViewControllerProtocol?
     
-    init(viewController: GameViewControllerProtocol?) {
-        self.viewController = viewController
-        gameScene = viewController?.gameSceneInstance
+    init() {
+        score.filter({ [10,25,40].contains($0) })
+            .subscribe(onNext: { [weak self] _ in
+                self?.gameScene?.increaseDifficulty()
+            }).disposed(by: disposeBag)
     }
     
-    private func increaseDifficultyIfNeeded() {
-        if [10,25,40].contains(score) {
-            gameScene?.increaseDifficulty()
-        }
-    }
-}
-
-//MARK: - СustomizableViewModel
-extension GameViewModel: СustomizableViewModel {
-    
-    func customize(with settings: SettingsModel) {
-        if settings.isCheatCodeEntered {
-            gameScene?.turnOffColision()
-        }
+    private func setupSubscribersForGameScene() {
+        gameScene?.gameEvent.subscribe(onNext: { [weak self] gameEvent in
+            guard let self = self else { return }
+            
+            switch gameEvent {
+            case .pickedUpAstronaut:
+                self.lightImpactFeedbackGenerator.impactOccurred()
+                self._score.accept(self._score.value + 1)
+            case .crashInMeteor:
+                self.heavyImpactFeedbackGenerator.impactOccurred()
+                self._isMenuHidden.accept(false)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
 //MARK: - GameViewModelProtocol
 extension GameViewModel: GameViewModelProtocol {
-    
-    var customizableViewModel: СustomizableViewModel { self }
+    var isMenuHidden: Observable<Bool> { _isMenuHidden.asObservable() }
+    var score: Observable<Int> { _score.asObservable() }
     
     func playButtonPressed() {
-        score = 0
-        viewController?.hideMenu()
+        _score.accept(0)
+        _isMenuHidden.accept(true)
         gameScene?.startNewGame()
-    }
-}
-
-//MARK: - GameSceneDelegate
-extension GameViewModel: GameSceneDelegate {
-    
-    func astronautCollisionHappened() {
-        if isScoreCountingEnable {
-            lightImpactFeedbackGenerator.impactOccurred()
-            score += 1
-            isScoreCountingEnable = false
-            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] _ in
-                self?.isScoreCountingEnable = true
-            }
-        }
-    }
-    
-    func meteorCollisionHappened() {
-        score = 0
-        heavyImpactFeedbackGenerator.impactOccurred()
-        viewController?.showMenu()
     }
 }

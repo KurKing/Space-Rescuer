@@ -8,15 +8,6 @@
 import SpriteKit
 
 class Meteor: SKSpriteNode {
-    init(size: CGSize, color: UIColor) {
-        let texture = SKTexture(imageNamed: .meteor)
-        super.init(texture: texture, color: .clear, size: size)
-        
-        name = .meteor
-        addColorAnimation(color: color)
-        setUpPhysics(texture: texture)
-    }
-    
     convenience init(parentFrameSize: CGSize, meteorSize: CGSize, color: UIColor) {
         self.init(size: meteorSize, color: color)
         
@@ -26,11 +17,20 @@ class Meteor: SKSpriteNode {
     
     convenience init(parentFrameSize: CGSize, color: UIColor) {
         let widthAndHeigth = Int.random(in: 20...90)
-
+        
         self.init(parentFrameSize: parentFrameSize, meteorSize:
                     CGSize(width: widthAndHeigth, height: widthAndHeigth), color: color)
     }
-
+    
+    init(size: CGSize, color: UIColor) {
+        let texture = SKTexture(imageNamed: .meteor)
+        super.init(texture: texture, color: .clear, size: size)
+        
+        name = .meteor
+        addColorAnimation(color: color)
+        setUpPhysics(texture: texture)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -53,10 +53,11 @@ class Meteor: SKSpriteNode {
 
 //MARK: - Meteor creation action
 extension Meteor {
-    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval, color: MeteorColor) {
+    static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval) {
         let meteorSequensAction = SKAction.sequence([
             SKAction.run {
-                let meteor = Meteor(parentFrameSize: parent.frame.size, color: color.uiColor)
+                let meteor = Meteor(parentFrameSize: parent.frame.size, color:
+                                        [UIColor.red, UIColor.yellow, UIColor.green, UIColor.clear].randomElement()!)
                 meteor.zPosition = 1
                 parent.addChild(meteor)
             },

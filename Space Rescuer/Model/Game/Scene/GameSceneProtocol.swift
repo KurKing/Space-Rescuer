@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol GameSceneProtocol {
+protocol GameSceneProtocol: AnyObject {
+    var gameEvent: Observable<GameEvent> { get }
     func startNewGame()
     func increaseDifficulty()
-    func turnOffColision()
 }

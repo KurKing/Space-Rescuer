@@ -7,25 +7,33 @@
 
 import SpriteKit
 import GameplayKit
+import RxSwift
+import RxRelay
 
 class GameScene: SKScene {
     
-    weak var userDelegate: GameSceneDelegate?
+    private let spaceShip = SpaceShip()
+    
+    fileprivate let _gameEvents = PublishRelay<GameEvent>()
+    
     private var shouldTouchesBeChecked = false
     private var isCollisionActivated = true
     private var currentDifficulty: TimeInterval = 0.5
+    private var isAstronautCollisionEnabled = true
     
-    private let spaceShip = SpaceShip()
-    
-    func setUp(size: CGSize) {
+    override init() {
+        super.init(size: .zero)
+        
         scaleMode = .aspectFill
         backgroundColor = .clear
-        self.size = size
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func didMove(to view: SKView) {
-        
         createStars()
         setUpPhysics()
         
@@ -50,7 +58,6 @@ class GameScene: SKScene {
 
 //MARK: - Physics
 extension GameScene: SKPhysicsContactDelegate {
-    
     override func didSimulatePhysics() {
         for i in [String.meteor, String.astronaut] {
             enumerateChildNodes(withName: i) { (node, stop) in
@@ -80,7 +87,13 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         removeAstronaut(contact)
-        userDelegate?.astronautCollisionHappened()
+        if isAstronautCollisionEnabled {
+            _gameEvents.accept(.pickedUpAstronaut)
+            isAstronautCollisionEnabled = false
+            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] _ in
+                self?.isAstronautCollisionEnabled = true
+            }
+        }
     }
     
     private func removeAstronaut(_ contact: SKPhysicsContact) {
@@ -97,7 +110,7 @@ extension GameScene: SKPhysicsContactDelegate {
             node.removeFromParent()
         }
         shouldTouchesBeChecked = false
-        userDelegate?.meteorCollisionHappened()
+        _gameEvents.accept(.crashInMeteor)
     }
     
     private func isCollisionBetweenSpaceShipAndMeteorHappend(_ contact: SKPhysicsContact) -> Bool {
@@ -106,24 +119,23 @@ extension GameScene: SKPhysicsContactDelegate {
         
         return ((aBitMask == .spaceShip && bBitMask == .meteor) || (bBitMask == .spaceShip && aBitMask == .meteor)) && isCollisionActivated
     }
-    
 }
 
 //MARK: - GameSceneProtocol
 extension GameScene: GameSceneProtocol {
-    func turnOffColision() {
-        isCollisionActivated = false
+    var gameEvent: Observable<GameEvent> {
+        _gameEvents.asObservable()
     }
     
     func increaseDifficulty() {
         currentDifficulty -= 0.1
         removeAction(forKey: .meteorFallingAction)
-        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty, color: .random)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
     }
     
     func startNewGame() {
         currentDifficulty = 0.5
-        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty, color: .random)
+        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
         shouldTouchesBeChecked = true
         
         enumerateChildNodes(withName: .astronaut) { (node, _) in
