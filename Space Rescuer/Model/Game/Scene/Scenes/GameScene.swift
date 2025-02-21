@@ -21,6 +21,8 @@ class GameScene: SKScene {
     private var currentDifficulty: TimeInterval = 0.5
     private var isAstronautCollisionEnabled = true
     
+    private var isStarsCreated = false
+    
     override init() {
         
         super.init(size: .zero)
@@ -36,13 +38,23 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        createStars()
         setUpPhysics()
         
         spaceShip.zPosition = 1
         addChild(spaceShip)
         
         Astronaut.addAstronautCreationAction(to: self)
+    }
+    
+    override func didChangeSize(_ oldSize: CGSize) {
+        
+        super.didChangeSize(oldSize)
+        
+        guard size.height != 0, !isStarsCreated else {
+            return
+        }
+        
+        createStars()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -177,9 +189,11 @@ private extension GameScene {
         
         if let stars = SKSpriteNode(fileNamed: "Stars") {
             
-            stars.position = CGPoint(x: 0, y: size.height / 2)
+            stars.position = CGPoint(x: 0, y: size.height)
             stars.zPosition = 0
             addChild(stars)
+            
+            isStarsCreated = true
         }
     }
     
