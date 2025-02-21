@@ -22,6 +22,7 @@ class GameScene: SKScene {
     private var isAstronautCollisionEnabled = true
     
     override init() {
+        
         super.init(size: .zero)
         
         scaleMode = .aspectFill
@@ -34,6 +35,7 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
         createStars()
         setUpPhysics()
         
@@ -44,12 +46,14 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if let touch = touches.first {
             spaceShip.move(to: touch.location(in: self))
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if isPaused {
             isPaused = false
         }
@@ -58,9 +62,13 @@ class GameScene: SKScene {
 
 //MARK: - Physics
 extension GameScene: SKPhysicsContactDelegate {
+    
     override func didSimulatePhysics() {
+        
         for i in [String.meteor, String.astronaut] {
+            
             enumerateChildNodes(withName: i) { (node, stop) in
+                
                 let heigth = UIScreen.main.bounds.height
                 
                 if node.position.y < -heigth/2-node.frame.height {
@@ -71,15 +79,19 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
         if !shouldTouchesBeChecked { return }
         
         if isCollisionBetweenSpaceShipAndMeteorHappend(contact) {
+            
             meteorCollisionHappened()
             return
         }
         
         for i in [contact.bodyA, contact.bodyB] {
+            
             if let node = i.node {
+                
                 if node.name == .meteor {
                     return
                 }
@@ -87,9 +99,12 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         removeAstronaut(contact)
+        
         if isAstronautCollisionEnabled {
+            
             _gameEvents.accept(.pickedUpAstronaut)
             isAstronautCollisionEnabled = false
+            
             Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [weak self] _ in
                 self?.isAstronautCollisionEnabled = true
             }
@@ -97,43 +112,54 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     private func removeAstronaut(_ contact: SKPhysicsContact) {
+        
         if contact.bodyA.node?.name ?? "" == .astronaut {
+            
             contact.bodyA.node?.removeFromParent()
             return
         }
+        
         contact.bodyB.node?.removeFromParent()
     }
     
     private func meteorCollisionHappened() {
+        
         removeAction(forKey: .meteorFallingAction)
+        
         enumerateChildNodes(withName: .meteor) { node, _ in
             node.removeFromParent()
         }
+        
         shouldTouchesBeChecked = false
         _gameEvents.accept(.crashInMeteor)
     }
     
     private func isCollisionBetweenSpaceShipAndMeteorHappend(_ contact: SKPhysicsContact) -> Bool {
+        
         let aBitMask = contact.bodyA.categoryBitMask
         let bBitMask = contact.bodyB.categoryBitMask
         
-        return ((aBitMask == .spaceShip && bBitMask == .meteor) || (bBitMask == .spaceShip && aBitMask == .meteor)) && isCollisionActivated
+        return ((aBitMask == .spaceShip && bBitMask == .meteor)
+                || (bBitMask == .spaceShip && aBitMask == .meteor)) && isCollisionActivated
     }
 }
 
 //MARK: - GameSceneProtocol
 extension GameScene: GameSceneProtocol {
+    
     var gameEvent: Observable<GameEvent> {
         _gameEvents.asObservable()
     }
     
     func increaseDifficulty() {
+        
         currentDifficulty -= 0.1
         removeAction(forKey: .meteorFallingAction)
         Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
     }
     
     func startNewGame() {
+        
         currentDifficulty = 0.5
         Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
         shouldTouchesBeChecked = true
@@ -146,8 +172,11 @@ extension GameScene: GameSceneProtocol {
 
 //MARK: - SetUp
 private extension GameScene {
+    
     func createStars() {
+        
         if let stars = SKSpriteNode(fileNamed: "Stars") {
+            
             stars.position = CGPoint(x: 0, y: size.height / 2)
             stars.zPosition = 0
             addChild(stars)
@@ -155,6 +184,7 @@ private extension GameScene {
     }
     
     func setUpPhysics() {
+        
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector(dx: 0, dy: -3)
     }

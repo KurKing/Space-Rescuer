@@ -8,9 +8,11 @@
 import UIKit
 
 class MenuView: UIView {
+    
     var delegate: MenuViewDelegate?
     
     private let playButton: UIButton = {
+        
         let button = UIButton(type: .system)
     
         button.backgroundColor = .clear
@@ -22,6 +24,7 @@ class MenuView: UIView {
     }()
     
     private let infoButton: UIButton = {
+        
         let button = UIButton(type: .system)
     
         button.backgroundColor = .clear
@@ -33,6 +36,7 @@ class MenuView: UIView {
     }()
     
     init() {
+        
         super.init(frame: .zero)
         
         layer.cornerRadius = .menuViewCornerRadius
@@ -40,6 +44,7 @@ class MenuView: UIView {
         
         addSubview(playButton)
         playButton.snp.makeConstraints {
+            
             $0.size.equalTo(120)
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().offset(20)
@@ -47,6 +52,7 @@ class MenuView: UIView {
         
         addSubview(infoButton)
         infoButton.snp.makeConstraints {
+            
             $0.size.equalTo(80)
             $0.centerX.equalToSuperview()
             $0.top.equalTo(playButton.snp.bottom).offset(20)

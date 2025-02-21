@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 
 protocol GameSceneProtocol: AnyObject {
+    
     var gameEvent: Observable<GameEvent> { get }
     func startNewGame()
     func increaseDifficulty()

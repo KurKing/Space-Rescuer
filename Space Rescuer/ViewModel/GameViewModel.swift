@@ -10,7 +10,9 @@ import RxRelay
 import UIKit
 
 class GameViewModel {
+    
     weak var gameScene: GameSceneProtocol? {
+        
         didSet {
             setupSubscribersForGameScene()
         }
@@ -31,14 +33,18 @@ class GameViewModel {
     }
     
     private func setupSubscribersForGameScene() {
+        
         gameScene?.gameEvent.subscribe(onNext: { [weak self] gameEvent in
-            guard let self = self else { return }
+            
+            guard let self else { return }
             
             switch gameEvent {
             case .pickedUpAstronaut:
+                
                 self.lightImpactFeedbackGenerator.impactOccurred()
                 self._score.accept(self._score.value + 1)
             case .crashInMeteor:
+                
                 self.heavyImpactFeedbackGenerator.impactOccurred()
                 self._isMenuHidden.accept(false)
             }
@@ -48,10 +54,12 @@ class GameViewModel {
 
 //MARK: - GameViewModelProtocol
 extension GameViewModel: GameViewModelProtocol {
+    
     var isMenuHidden: Observable<Bool> { _isMenuHidden.asObservable() }
     var score: Observable<Int> { _score.asObservable() }
     
     func playButtonPressed() {
+        
         _score.accept(0)
         _isMenuHidden.accept(true)
         gameScene?.startNewGame()

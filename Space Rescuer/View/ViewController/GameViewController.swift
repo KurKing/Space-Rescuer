@@ -13,11 +13,13 @@ import RxCocoa
 
 class GameViewController: UIViewController {
     
-    let gameScene: GameScene
-    let menuView = MenuView()
+    private let gameScene: GameScene
+    private let menuView = MenuView()
     
     var viewModel: GameViewModelProtocol? {
+        
         didSet {
+            
             viewModel?.gameScene = gameScene
             
             viewModel?.score.subscribe(onNext: { [weak self] score in
@@ -34,7 +36,9 @@ class GameViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     init(gameScene: GameScene = GameScene()) {
+        
         self.gameScene = gameScene
+        
         super.init(nibName: nil, bundle: nil)
         
         view.rx.observe(CGRect.self, "bounds")
@@ -49,6 +53,7 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         setBackgroungImage()
@@ -57,6 +62,7 @@ class GameViewController: UIViewController {
         
         menuView.delegate = self
         view.addSubview(menuView)
+        
         menuView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
@@ -65,6 +71,7 @@ class GameViewController: UIViewController {
 
 //MARK: - MenuViewDelegate
 extension GameViewController: MenuViewDelegate {
+    
     func playButtonPressed() {
         viewModel?.playButtonPressed()
     }
@@ -76,9 +83,12 @@ extension GameViewController: MenuViewDelegate {
 
 //MARK: - Set up
 private extension GameViewController {
+    
     func setBackgroungImage() {
+        
         let imageView = UIImageView(image: UIImage(named: .backgroungImageName))
         imageView.contentMode = .scaleAspectFill
+        
         view.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -86,6 +96,7 @@ private extension GameViewController {
     }
     
     func setupScene() {
+        
         let sceneView = SKView(frame: view.frame)
         sceneView.ignoresSiblingOrder = false
         sceneView.backgroundColor = .clear
@@ -95,8 +106,11 @@ private extension GameViewController {
     }
     
     func addScoreLabel() {
+        
         view.addSubview(scoreView)
+        
         scoreView.snp.makeConstraints {
+            
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(3)
             $0.leading.equalToSuperview().offset(15)
             $0.height.equalTo(50)

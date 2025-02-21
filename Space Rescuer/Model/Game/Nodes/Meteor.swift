@@ -8,7 +8,9 @@
 import SpriteKit
 
 class Meteor: SKSpriteNode {
+    
     convenience init(parentFrameSize: CGSize, meteorSize: CGSize, color: UIColor) {
+        
         self.init(size: meteorSize, color: color)
         
         position.x = CGFloat.random(in: -parentFrameSize.width/2...parentFrameSize.width/2)
@@ -16,6 +18,7 @@ class Meteor: SKSpriteNode {
     }
     
     convenience init(parentFrameSize: CGSize, color: UIColor) {
+        
         let widthAndHeigth = Int.random(in: 20...90)
         
         self.init(parentFrameSize: parentFrameSize, meteorSize:
@@ -23,6 +26,7 @@ class Meteor: SKSpriteNode {
     }
     
     init(size: CGSize, color: UIColor) {
+        
         let texture = SKTexture(imageNamed: .meteor)
         super.init(texture: texture, color: .clear, size: size)
         
@@ -40,6 +44,7 @@ class Meteor: SKSpriteNode {
     }
     
     private func setUpPhysics(texture: SKTexture) {
+        
         physicsBody = SKPhysicsBody(texture: texture, size: size)
         
         physicsBody?.categoryBitMask = .meteor
@@ -53,9 +58,12 @@ class Meteor: SKSpriteNode {
 
 //MARK: - Meteor creation action
 extension Meteor {
+    
     static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval) {
+        
         let meteorSequensAction = SKAction.sequence([
             SKAction.run {
+                
                 let meteor = Meteor(parentFrameSize: parent.frame.size, color:
                                         [UIColor.red, UIColor.yellow, UIColor.green, UIColor.clear].randomElement()!)
                 meteor.zPosition = 1

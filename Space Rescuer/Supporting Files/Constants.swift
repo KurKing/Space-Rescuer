@@ -8,6 +8,7 @@
 import UIKit
 
 extension String {
+    
     static let backgroungImageName = "bg"
     static let spaceShip = "spaceShip"
     static let redSpaceShip = "redSpaceShip"
@@ -28,6 +29,7 @@ extension String {
 }
 
 extension UInt32 {
+    
     static let meteor: UInt32 = 0x1 << 0
     static let spaceShip: UInt32 = 0x1 << 1
     static let astronaut: UInt32 = 0x1 << 2
