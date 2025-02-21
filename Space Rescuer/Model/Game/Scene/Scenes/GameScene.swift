@@ -94,6 +94,13 @@ extension GameScene: SKPhysicsContactDelegate {
         
         if !shouldTouchesBeChecked { return }
         
+        DispatchQueue.main.async {
+            self.didBeginInternal(contact)
+        }
+    }
+    
+    private func didBeginInternal(_ contact: SKPhysicsContact) {
+        
         if isCollisionBetweenSpaceShipAndMeteorHappend(contact) {
             
             meteorCollisionHappened()
@@ -148,11 +155,13 @@ extension GameScene: SKPhysicsContactDelegate {
     
     private func isCollisionBetweenSpaceShipAndMeteorHappend(_ contact: SKPhysicsContact) -> Bool {
         
+        guard isCollisionActivated else { return false }
+        
         let aBitMask = contact.bodyA.categoryBitMask
         let bBitMask = contact.bodyB.categoryBitMask
         
-        return ((aBitMask == .spaceShip && bBitMask == .meteor)
-                || (bBitMask == .spaceShip && aBitMask == .meteor)) && isCollisionActivated
+        return (aBitMask == .spaceShip && bBitMask == .meteor)
+        || (bBitMask == .spaceShip && aBitMask == .meteor)
     }
 }
 
@@ -173,11 +182,19 @@ extension GameScene: GameSceneProtocol {
     func startNewGame() {
         
         currentDifficulty = 0.5
-        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
         shouldTouchesBeChecked = true
         
-        enumerateChildNodes(withName: .astronaut) { (node, _) in
-            node.removeFromParent()
+        DispatchQueue.main.async {
+            
+            Meteor.addMeteorCreationAction(to: self, creationDuration:
+                                            self.currentDifficulty)
+        }
+        
+        DispatchQueue.main.async {
+            
+            self.enumerateChildNodes(withName: .astronaut) { (node, _) in
+                node.removeFromParent()
+            }
         }
     }
 }

@@ -62,10 +62,16 @@ extension Meteor {
     static func addMeteorCreationAction(to parent: SKScene, creationDuration: TimeInterval) {
         
         let meteorSequensAction = SKAction.sequence([
+            
             SKAction.run {
                 
-                let meteor = Meteor(parentFrameSize: parent.frame.size, color:
-                                        [UIColor.red, UIColor.yellow, UIColor.green, UIColor.clear].randomElement()!)
+                let meteorColor = [UIColor.red,
+                                    UIColor.yellow,
+                                    UIColor.green,
+                                    UIColor.clear].randomElement()!
+                
+                let meteor = Meteor(parentFrameSize: parent.frame.size,
+                                    color: meteorColor)
                 meteor.zPosition = 1
                 parent.addChild(meteor)
             },
