@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C985E8A7FE547DE95A059C1 /* libPods-Space Rescuer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D174F04CC9428A11D76158F /* libPods-Space Rescuer.a */; };
 		D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363126B58CE100410F06 /* AppDelegate.swift */; };
 		D25A363426B58CE100410F06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D25A363326B58CE100410F06 /* GameScene.sks */; };
 		D25A363826B58CE100410F06 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363726B58CE100410F06 /* GameScene.swift */; };
@@ -26,13 +27,12 @@
 		D25A369426B6EEEE00410F06 /* MenuViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A369326B6EEEE00410F06 /* MenuViewDelegate.swift */; };
 		D2AA0FBC26B8035700BD9F3C /* GameSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA0FBB26B8035700BD9F3C /* GameSceneProtocol.swift */; };
 		E26B42FB2880839400FE6E59 /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26B42FA2880839400FE6E59 /* GameEvent.swift */; };
-		E81BABF3FC41B40E7D4EE7E8 /* Pods_Space_Rescuer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8474BFCD8C55017A73C74365 /* Pods_Space_Rescuer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F070B7245DCD5CF1019096D /* Pods-Space Rescuer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer.debug.xcconfig"; sourceTree = "<group>"; };
-		545DFFEA7053C35C1B82C354 /* Pods-Space Rescuer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer.release.xcconfig"; path = "Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer.release.xcconfig"; sourceTree = "<group>"; };
-		8474BFCD8C55017A73C74365 /* Pods_Space_Rescuer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Space_Rescuer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D174F04CC9428A11D76158F /* libPods-Space Rescuer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Space Rescuer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		299D9F1C002F4E763AD6B373 /* Pods-Space Rescuer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer.debug.xcconfig"; path = "Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer.debug.xcconfig"; sourceTree = "<group>"; };
+		4CF776D00CE6F07736F9615D /* Pods-Space Rescuer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer.release.xcconfig"; path = "Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer.release.xcconfig"; sourceTree = "<group>"; };
 		D25A362E26B58CE100410F06 /* Space Rescuer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Rescuer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25A363126B58CE100410F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D25A363326B58CE100410F06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E81BABF3FC41B40E7D4EE7E8 /* Pods_Space_Rescuer.framework in Frameworks */,
+				1C985E8A7FE547DE95A059C1 /* libPods-Space Rescuer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,16 +71,16 @@
 		09837989C93C452DC80AAB08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1F070B7245DCD5CF1019096D /* Pods-Space Rescuer.debug.xcconfig */,
-				545DFFEA7053C35C1B82C354 /* Pods-Space Rescuer.release.xcconfig */,
+				299D9F1C002F4E763AD6B373 /* Pods-Space Rescuer.debug.xcconfig */,
+				4CF776D00CE6F07736F9615D /* Pods-Space Rescuer.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		64CC96532115D0BE5B2F2926 /* Frameworks */ = {
+		4BD348A79FA2C5F345EF9CE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8474BFCD8C55017A73C74365 /* Pods_Space_Rescuer.framework */,
+				0D174F04CC9428A11D76158F /* libPods-Space Rescuer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,7 +91,7 @@
 				D25A363026B58CE100410F06 /* Space Rescuer */,
 				D25A362F26B58CE100410F06 /* Products */,
 				09837989C93C452DC80AAB08 /* Pods */,
-				64CC96532115D0BE5B2F2926 /* Frameworks */,
+				4BD348A79FA2C5F345EF9CE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,11 +233,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D25A365926B58CE300410F06 /* Build configuration list for PBXNativeTarget "Space Rescuer" */;
 			buildPhases = (
-				F36F45AA4E0FF9243FF838E0 /* [CP] Check Pods Manifest.lock */,
+				4DA9E4C7E10CD4E0859AB043 /* [CP] Check Pods Manifest.lock */,
 				D25A362A26B58CE100410F06 /* Sources */,
 				D25A362B26B58CE100410F06 /* Frameworks */,
 				D25A362C26B58CE100410F06 /* Resources */,
-				DC0C7B1898F4E564B116949B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,24 +295,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DC0C7B1898F4E564B116949B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F36F45AA4E0FF9243FF838E0 /* [CP] Check Pods Manifest.lock */ = {
+		4DA9E4C7E10CD4E0859AB043 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,12 +462,13 @@
 		};
 		D25A365A26B58CE300410F06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F070B7245DCD5CF1019096D /* Pods-Space Rescuer.debug.xcconfig */;
+			baseConfigurationReference = 299D9F1C002F4E763AD6B373 /* Pods-Space Rescuer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WG482W7ASB;
+				DEVELOPMENT_TEAM = CUJ73BXL42;
 				INFOPLIST_FILE = "Space Rescuer/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -493,8 +476,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kurking.Space-Rescuer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kurking.Space-Rescuer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -506,12 +490,13 @@
 		};
 		D25A365B26B58CE300410F06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 545DFFEA7053C35C1B82C354 /* Pods-Space Rescuer.release.xcconfig */;
+			baseConfigurationReference = 4CF776D00CE6F07736F9615D /* Pods-Space Rescuer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WG482W7ASB;
+				DEVELOPMENT_TEAM = CUJ73BXL42;
 				INFOPLIST_FILE = "Space Rescuer/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -519,8 +504,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kurking.Space-Rescuer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kurking.Space-Rescuer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
