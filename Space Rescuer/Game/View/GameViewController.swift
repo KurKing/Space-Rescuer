@@ -77,7 +77,7 @@ extension GameViewController: MenuViewDelegate {
     }
     
     func infoButtonPressed() {
-        print("infoButtonPressed")
+        present(InfoViewController(), animated: true)
     }
 }
 
