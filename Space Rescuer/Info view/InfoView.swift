@@ -72,6 +72,23 @@ struct InfoView: View {
                         Text(appVersion ?? "1.0")
                     }//:HStack
                 }//:Section #1
+                
+                Section() {
+                    
+                    HStack {
+                        
+                        Text("Max count").foregroundColor(.gray)
+                        Spacer()
+                        
+                        Text("\(MaxCountStorage().count)")
+                        
+                        Image("astronaut")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .padding(.horizontal, 4)
+                    }//:HStack
+                }//:Section #2
             }//:Form
         }//:VStack
         .frame(maxWidth: 640)

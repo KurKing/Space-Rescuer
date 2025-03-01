@@ -19,6 +19,7 @@ class GameViewModel {
     }
     
     fileprivate let _score = BehaviorRelay(value: 0)
+    private let scoreStorage = MaxCountStorage()
     fileprivate let _isMenuHidden = BehaviorRelay(value: false)
     private let disposeBag = DisposeBag()
     
@@ -47,6 +48,7 @@ class GameViewModel {
             case .crashInMeteor:
                 
                 self.heavyImpactFeedbackGenerator.impactOccurred()
+                self.scoreStorage.set(count: self._score.value)
                 self._isMenuHidden.accept(false)
             }
         }).disposed(by: disposeBag)

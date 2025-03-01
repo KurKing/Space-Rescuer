@@ -11,6 +11,7 @@
 		49C8B63D2D73708600416601 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B63C2D73708400416601 /* InfoView.swift */; };
 		49C8B6402D73735700416601 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B63F2D73735200416601 /* InfoViewController.swift */; };
 		49C8B6432D73756D00416601 /* GameDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B6422D73756600416601 /* GameDifficulty.swift */; };
+		49C8B6462D7379B400416601 /* MaxCountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B6452D7379B400416601 /* MaxCountStorage.swift */; };
 		D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363126B58CE100410F06 /* AppDelegate.swift */; };
 		D25A363426B58CE100410F06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D25A363326B58CE100410F06 /* GameScene.sks */; };
 		D25A363826B58CE100410F06 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A363726B58CE100410F06 /* GameScene.swift */; };
@@ -38,6 +39,7 @@
 		49C8B63C2D73708400416601 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		49C8B63F2D73735200416601 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		49C8B6422D73756600416601 /* GameDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDifficulty.swift; sourceTree = "<group>"; };
+		49C8B6452D7379B400416601 /* MaxCountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxCountStorage.swift; sourceTree = "<group>"; };
 		4CF776D00CE6F07736F9615D /* Pods-Space Rescuer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Space Rescuer.release.xcconfig"; path = "Target Support Files/Pods-Space Rescuer/Pods-Space Rescuer.release.xcconfig"; sourceTree = "<group>"; };
 		D25A362E26B58CE100410F06 /* Space Rescuer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Rescuer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25A363126B58CE100410F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				E26B42FA2880839400FE6E59 /* GameEvent.swift */,
+				49C8B6452D7379B400416601 /* MaxCountStorage.swift */,
 				49C8B6412D7374FC00416601 /* Difficulty */,
 				D25A367B26B693E700410F06 /* Nodes */,
 				D25A366326B58EAB00410F06 /* Scene */,
@@ -367,6 +370,7 @@
 				D25A363226B58CE100410F06 /* AppDelegate.swift in Sources */,
 				D25A369126B6EEA700410F06 /* MenuView.swift in Sources */,
 				D25A366A26B5964C00410F06 /* Constants.swift in Sources */,
+				49C8B6462D7379B400416601 /* MaxCountStorage.swift in Sources */,
 				D25A369426B6EEEE00410F06 /* MenuViewDelegate.swift in Sources */,
 				D25A368F26B6EAC800410F06 /* ScoreView.swift in Sources */,
 				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
