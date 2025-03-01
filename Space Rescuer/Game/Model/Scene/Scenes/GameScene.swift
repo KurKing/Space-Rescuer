@@ -18,10 +18,12 @@ class GameScene: SKScene {
     
     private var shouldTouchesBeChecked = false
     private var isCollisionActivated = true
-    private var currentDifficulty: TimeInterval = 0.5
+    private let difficulty = GameDifficulty()
     private var isAstronautCollisionEnabled = true
     
     private var isStarsCreated = false
+    
+    private let disposeBag = DisposeBag()
     
     override init() {
         
@@ -30,6 +32,8 @@ class GameScene: SKScene {
         scaleMode = .aspectFill
         backgroundColor = .clear
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        startObserving()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -173,22 +177,14 @@ extension GameScene: GameSceneProtocol {
     }
     
     func increaseDifficulty() {
-        
-        currentDifficulty -= 0.1
-        removeAction(forKey: .meteorFallingAction)
-        Meteor.addMeteorCreationAction(to: self, creationDuration: currentDifficulty)
+        difficulty.increase()
     }
     
     func startNewGame() {
         
-        currentDifficulty = 0.5
         shouldTouchesBeChecked = true
         
-        DispatchQueue.main.async {
-            
-            Meteor.addMeteorCreationAction(to: self, creationDuration:
-                                            self.currentDifficulty)
-        }
+        difficulty.reset()
         
         DispatchQueue.main.async {
             
@@ -218,5 +214,23 @@ private extension GameScene {
         
         physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector(dx: 0, dy: -3)
+    }
+    
+    func startObserving() {
+    
+        difficulty.difficultyLevel
+            .observe(on: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] difficulty in
+                
+                guard let self else { return }
+                
+                self.physicsWorld.gravity = .init(dx: 0, dy: difficulty.gravity)
+                
+                guard self.shouldTouchesBeChecked else { return }
+                
+                self.removeAction(forKey: .meteorFallingAction)
+                Meteor.addMeteorCreationAction(to: self,
+                                               creationDuration: difficulty.meteorCreation)
+            }).disposed(by: disposeBag)
     }
 }

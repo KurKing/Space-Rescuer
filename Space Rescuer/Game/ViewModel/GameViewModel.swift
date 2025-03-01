@@ -26,6 +26,7 @@ class GameViewModel {
     private let heavyImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
     
     init() {
+        
         score.filter({ [10,25,40].contains($0) })
             .subscribe(onNext: { [weak self] _ in
                 self?.gameScene?.increaseDifficulty()
