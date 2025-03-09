@@ -27,7 +27,7 @@ jobs:
      - name: Select Xcode
        run: sudo Xcode-select -switch /Applications/Xcode_16.0.app/Contents/Developer
      - name: Build
-       run: xcodebuild clean build -workspace example.xcworkspace -scheme <Your_proj_scheme> -destination 'platform=iOS Simulator,name=iPhone 14 Pro example,OS=16.2'
+       run: xcodebuild clean build -workspace example.xcworkspace -scheme Space-Rescuer -destination 'platform=iOS Simulator,name=iPhone 14 Pro example,OS=16.2'
      - name: upload iOS binary
        uses: maierj/fastlane-action@v1.4.0
        with:
