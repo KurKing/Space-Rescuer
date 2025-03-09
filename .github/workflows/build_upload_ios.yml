@@ -1,0 +1,44 @@
+name: testflight
+
+on:
+  push:
+    tags:
+      - Release_*
+jobs:
+ build-ios:
+   runs-on: macos-15
+   steps:
+     - name: Checkout repository
+       uses: actions/checkout@v2
+     - name: Set up ruby env
+       uses: ruby/setup-ruby@v1
+       with:
+         ruby-version: 3.2.2
+         bundler-cache: true
+     - name: Decode signing certificate into a file
+       env:
+         CERTIFICATE_BASE64: ${{ secrets.APPLE_KEY_ID }}
+       run: |
+         echo $CERTIFICATE_BASE64 | base64 --decode > signing-cert.p12
+     - name: pod install
+       run: pod install
+     - name: pod update
+       run: pod update
+     - name: Select Xcode
+       run: sudo Xcode-select -switch /Applications/Xcode_16.0.app/Contents/Developer
+     - name: Build
+       run: xcodebuild clean build -workspace example.xcworkspace -scheme <Your_proj_scheme> -destination 'platform=iOS Simulator,name=iPhone 14 Pro example,OS=16.2'
+     - name: upload iOS binary
+       uses: maierj/fastlane-action@v1.4.0
+       with:
+        lane: bundle exec fastlane ios upload_ios_beta_Testflight
+       env:
+         APPLE_ID: '${{ secrets.APPLE_ID }}'
+         ITC_TEAM_ID: '${{ secrets.ITC_TEAM_ID }}'
+         DEV_PORTAL_TEAM_ID: '${{ secrets.DEV_PORTAL_TEAM_ID }}'
+         KEYCHAIN_NAME: '${{ secrets.KEYCHAIN_NAME }}'
+         KEYCHAIN_PASSWORD: '${{ secrets.KEYCHAIN_PASSWORD }}'
+         APPLE_KEY_ID: '${{ secrets.APPLE_KEY_ID }}'
+         APPLE_ISSUER_ID: '${{ secrets.APPLE_ISSUER_ID }}'
+         APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
+         GIT_AUTHORIZATION: '${{ secrets.GIT_AUTHORIZATION }}'

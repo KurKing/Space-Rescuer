@@ -1,0 +1,60 @@
+KEYCHAIN_NAME = ENV["KEYCHAIN_NAME"]
+KEYCHAIN_PASSWORD = ENV["KEYCHAIN_PASSWORD"]
+
+default_platform :ios
+
+platform :ios do
+
+desc "TestFlight"
+  lane :tf do
+
+    create_keychain(
+        name: KEYCHAIN_NAME,
+        password: KEYCHAIN_PASSWORD,
+        unlock: true,
+        timeout: 3600,
+        lock_when_sleeps: false
+    )
+
+    api_key = app_store_connect_api_key(
+      key_id: ENV["APPLE_KEY_ID"],
+      issuer_id: ENV["APPLE_ISSUER_ID"],
+      key_content: ENV["APPLE_KEY_CONTENT"],
+      is_key_content_base64: true,           
+      duration: 1200,            
+      in_house: false
+    )
+
+    increment_build_number(xcodeproj: "Space Rescuer.xcworkspace")
+
+    cocoapods(
+      clean_install: true
+    )
+
+    match(
+      type: "app-store",
+      app_identifier: "com.kurking.Space-Rescuer",
+      git_basic_authorization: Base64.strict_encode64(ENV["GIT_AUTHORIZATION"]),
+      readonly: true,
+      keychain_name: KEYCHAIN_NAME,
+      keychain_password: KEYCHAIN_PASSWORD,
+      api_key: api_key
+    )
+
+    gym(
+        workspace: "Space Rescuer.xcworkspace",
+        scheme: "Space Rescuer",
+        configuration: "Release",
+        clean: true,
+        output_directory: "build",
+        output_name: "Space-Rescuer.ipa",
+        export_method: "app-store"
+    )
+
+    testflight(
+        apple_id: ENV["APPLE_ID"],
+        ipa: "build/Space-Rescuer.ipa",
+        skip_submission: true,
+        skip_waiting_for_build_processing: true
+    )
+end
