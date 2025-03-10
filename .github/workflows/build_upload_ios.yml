@@ -29,17 +29,9 @@ jobs:
           pod install
           pod update
 
-      - name: Select Xcode version
-          uses: apple-actions/setup-xcode@v2
-          with:
-            xcode-version: '16.0'
-
-      - name: Build the app
-        run: |
-          xcodebuild clean build \
-            -workspace "Space Rescuer.xcworkspace" \
-            -scheme "Space-Rescuer" \
-            -destination "platform=iOS"
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.0'
 
       - name: Upload iOS binary to TestFlight
         uses: maierj/fastlane-action@v1.4.0
