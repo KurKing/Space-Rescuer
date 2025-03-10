@@ -37,7 +37,7 @@ platform :ios do
 
     gym(
       workspace: "Space Rescuer.xcworkspace",
-      scheme: "Space Rescuer",
+      scheme: "Space-Rescuer",
       configuration: "Release",
       clean: true,
       output_directory: "build",
