@@ -46,7 +46,7 @@ platform :ios do
       profile_name: "match AppStore com.kurking.Space-Rescuer"
     )
     
-    xcversion(version: "16.2.0")
+    xcodes(version: "16.2.0")
 
     gym(
       workspace: "Space Rescuer.xcworkspace",
