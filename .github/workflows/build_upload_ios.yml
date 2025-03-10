@@ -30,7 +30,9 @@ jobs:
           pod update
 
       - name: Select Xcode version
-        run: sudo xcode-select -switch /Applications/Xcode_16.0.app/Contents/Developer
+          uses: apple-actions/setup-xcode@v2
+          with:
+            xcode-version: '16.0'
 
       - name: Build the app
         run: |
