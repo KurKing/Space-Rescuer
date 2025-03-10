@@ -34,18 +34,16 @@ platform :ios do
       keychain_password: KEYCHAIN_PASSWORD,
       api_key: api_key
     )
-    
-    xcode_select("/Applications/Xcode-16.2.app")
-    
+
     update_project_team(
       path: "Space Rescuer.xcodeproj",
       teamid: ENV["DEV_PORTAL_TEAM_ID"]
     )
     
     update_code_signing_settings(
-        targets: ["Space Rescuer"],
-        build_configurations: "Release",
-        profile_name: "match AppStore com.kurking.Space-Rescuer"
+      targets: ["Space Rescuer"],
+      build_configurations: "Release",
+      profile_name: "match AppStore com.kurking.Space-Rescuer"
     )
 
     gym(
