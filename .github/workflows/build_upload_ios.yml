@@ -51,4 +51,5 @@ jobs:
           APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
           GIT_AUTHORIZATION: '${{ secrets.GIT_AUTHORIZATION }}'
           MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
+          APPLICATION_APPLE_ID: '${{ secrets.APPLICATION_APPLE_ID }}'
         run: bundle exec fastlane tf

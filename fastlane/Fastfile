@@ -59,7 +59,7 @@ platform :ios do
     )
 
     testflight(
-      apple_id: ENV["APPLE_ID"],
+      apple_id: ENV["APPLICATION_APPLE_ID"],
       ipa: "build/Space-Rescuer.ipa",
       skip_submission: true,
       skip_waiting_for_build_processing: true
