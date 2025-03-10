@@ -28,11 +28,11 @@ jobs:
         run: |
           pod install
           pod update
-          
-      - name: Set up Xcode version
-        uses: apple-actions/setup-xcode@v2
-        with:
-          xcode-version: '16.0'
+
+      - name: Select Xcode version
+          uses: apple-actions/setup-xcode@v2
+          with:
+            xcode-version: '16.0'
 
       - name: Build the app
         run: |
