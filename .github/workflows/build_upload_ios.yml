@@ -32,6 +32,12 @@ jobs:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '16.2.0'
+      
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Update Fastlane
+        run: bundle update fastlane
 
       - name: Upload iOS binary to TestFlight
         env:
