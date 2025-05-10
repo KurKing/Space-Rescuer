@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct InfoView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    
+    let productIds = ["very.first", "very.first.subscription"]
+    @State private var products: [Product] = []
     
     var body: some View {
         
@@ -89,10 +93,35 @@ struct InfoView: View {
                             .padding(.horizontal, 4)
                     }//:HStack
                 }//:Section #2
+                
+                Section("Products") {
+                    
+                    ForEach(products) { product in
+                        
+                        Button {
+                            
+                            print("Buy!!!")
+                        } label: {
+                            
+                            HStack {
+                                Text(product.displayName).foregroundColor(.gray)
+                                Spacer()
+                                Text(product.displayPrice)
+                            }//:HStack
+                        } //:Button
+                    }//:ForEach
+                }//:Section #3
             }//:Form
         }//:VStack
         .frame(maxWidth: 640)
+        .task {
+            try? await self.loadProducts()
+        }
     }//:Body
+    
+    private func loadProducts() async throws {
+        products = try await Product.products(for: productIds)
+    }
 }
 
 struct InfoView_Previews: PreviewProvider {
