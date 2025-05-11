@@ -13,6 +13,9 @@
 		4947C31A2DD0B79400E566AC /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947C3132DD0B79400E566AC /* DependencyContainer.swift */; };
 		4947C31B2DD0B79400E566AC /* DependencyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947C3142DD0B79400E566AC /* DependencyWrappers.swift */; };
 		4947C31D2DD0B79400E566AC /* ServiceRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947C3162DD0B79400E566AC /* ServiceRegistration.swift */; };
+		4947C3202DD0B87B00E566AC /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947C31F2DD0B87B00E566AC /* PurchaseManager.swift */; };
+		4947C3222DD1007F00E566AC /* HopoateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947C3212DD1007800E566AC /* HopoateAdapter.swift */; };
+		4947C3242DD1035200E566AC /* ActivityIndicatorViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4947C3232DD1034500E566AC /* ActivityIndicatorViewAdapter.swift */; };
 		49C8B63D2D73708600416601 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B63C2D73708400416601 /* InfoView.swift */; };
 		49C8B6402D73735700416601 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B63F2D73735200416601 /* InfoViewController.swift */; };
 		49C8B6432D73756D00416601 /* GameDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8B6422D73756600416601 /* GameDifficulty.swift */; };
@@ -46,6 +49,9 @@
 		4947C3142DD0B79400E566AC /* DependencyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyWrappers.swift; sourceTree = "<group>"; };
 		4947C3152DD0B79400E566AC /* ServiceProviderRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderRegistrar.swift; sourceTree = "<group>"; };
 		4947C3162DD0B79400E566AC /* ServiceRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistration.swift; sourceTree = "<group>"; };
+		4947C31F2DD0B87B00E566AC /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		4947C3212DD1007800E566AC /* HopoateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopoateAdapter.swift; sourceTree = "<group>"; };
+		4947C3232DD1034500E566AC /* ActivityIndicatorViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewAdapter.swift; sourceTree = "<group>"; };
 		49C8B63C2D73708400416601 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		49C8B63F2D73735200416601 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		49C8B6422D73756600416601 /* GameDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDifficulty.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 		4947C3172DD0B79400E566AC /* Hopoate */ = {
 			isa = PBXGroup;
 			children = (
+				4947C3212DD1007800E566AC /* HopoateAdapter.swift */,
 				4947C3122DD0B79400E566AC /* MockContainer.swift */,
 				4947C3132DD0B79400E566AC /* DependencyContainer.swift */,
 				4947C3142DD0B79400E566AC /* DependencyWrappers.swift */,
@@ -105,6 +112,14 @@
 				4947C3162DD0B79400E566AC /* ServiceRegistration.swift */,
 			);
 			path = Hopoate;
+			sourceTree = "<group>";
+		};
+		4947C31E2DD0B82F00E566AC /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				4947C31F2DD0B87B00E566AC /* PurchaseManager.swift */,
+			);
+			path = Purchases;
 			sourceTree = "<group>";
 		};
 		49C8B6392D736F4700416601 /* Game */ = {
@@ -120,6 +135,7 @@
 		49C8B63A2D736F5000416601 /* Info view */ = {
 			isa = PBXGroup;
 			children = (
+				4947C3232DD1034500E566AC /* ActivityIndicatorViewAdapter.swift */,
 				49C8B63F2D73735200416601 /* InfoViewController.swift */,
 				49C8B63C2D73708400416601 /* InfoView.swift */,
 			);
@@ -175,6 +191,7 @@
 				49C8B63B2D736F6E00416601 /* Menu view */,
 				49C8B63A2D736F5000416601 /* Info view */,
 				49C8B6392D736F4700416601 /* Game */,
+				4947C31E2DD0B82F00E566AC /* Purchases */,
 				D25A368C26B6DC3300410F06 /* Supporting Files */,
 				D25A364026B58CE300410F06 /* Info.plist */,
 			);
@@ -387,6 +404,7 @@
 				D25A368326B6C14900410F06 /* Astronaut.swift in Sources */,
 				D25A363826B58CE100410F06 /* GameScene.swift in Sources */,
 				D25A368726B6D1C400410F06 /* GameViewModelProtocol.swift in Sources */,
+				4947C3242DD1035200E566AC /* ActivityIndicatorViewAdapter.swift in Sources */,
 				D25A367F26B69BAE00410F06 /* Meteor.swift in Sources */,
 				D25A363A26B58CE100410F06 /* GameViewController.swift in Sources */,
 				D2AA0FBC26B8035700BD9F3C /* GameSceneProtocol.swift in Sources */,
@@ -404,8 +422,10 @@
 				D25A368F26B6EAC800410F06 /* ScoreView.swift in Sources */,
 				D25A367D26B6941600410F06 /* SpaceShip.swift in Sources */,
 				49C8B6432D73756D00416601 /* GameDifficulty.swift in Sources */,
+				4947C3222DD1007F00E566AC /* HopoateAdapter.swift in Sources */,
 				49C8B63D2D73708600416601 /* InfoView.swift in Sources */,
 				49C8B6402D73735700416601 /* InfoViewController.swift in Sources */,
+				4947C3202DD0B87B00E566AC /* PurchaseManager.swift in Sources */,
 				D25A367126B5CB4A00410F06 /* GameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

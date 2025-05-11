@@ -12,8 +12,8 @@ struct InfoView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    let productIds = ["very.first", "very.first.subscription"]
     @State private var products: [Product] = []
+    private let purchaseManager = optionalResolve(PurchaseManager.self)
     
     var body: some View {
         
@@ -96,32 +96,45 @@ struct InfoView: View {
                 
                 Section("Products") {
                     
-                    ForEach(products) { product in
+                    if (!products.isEmpty) {
                         
-                        Button {
+                        ForEach(products) { product in
                             
-                            print("Buy!!!")
-                        } label: {
+                            Button {
+                                
+                                Task {
+                                    try? await purchaseManager?.purchase(product)
+                                }
+                            } label: {
+                                
+                                HStack {
+                                    Text(product.displayName).foregroundColor(.gray)
+                                    Spacer()
+                                    Text(product.displayPrice)
+                                }//:HStack
+                            } //:Button
+                        }//:ForEach
+                    } else {
+                        
+                        HStack {
                             
-                            HStack {
-                                Text(product.displayName).foregroundColor(.gray)
-                                Spacer()
-                                Text(product.displayPrice)
-                            }//:HStack
-                        } //:Button
-                    }//:ForEach
+                            Spacer()
+                            
+                            ActivityIndicatorViewAdapter(isAnimating: .constant(true),
+                                                         style: .medium)
+                            .frame(width: 16, height: 16, alignment: .center)
+                            
+                            Spacer()
+                        }//:HStack
+                    }
                 }//:Section #3
             }//:Form
         }//:VStack
         .frame(maxWidth: 640)
         .task {
-            try? await self.loadProducts()
+            products = await purchaseManager?.getProducts() ?? []
         }
     }//:Body
-    
-    private func loadProducts() async throws {
-        products = try await Product.products(for: productIds)
-    }
 }
 
 struct InfoView_Previews: PreviewProvider {
