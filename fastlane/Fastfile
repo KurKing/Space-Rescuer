@@ -35,7 +35,7 @@ platform :ios do
       submit_for_review: false,
       precheck_include_in_app_purchases: false,
       force: true,
-      metadata_path: "./metadata"
+      metadata_path: "./metadata",
       submission_information: {
         add_id_info_uses_idfa: false
       }
