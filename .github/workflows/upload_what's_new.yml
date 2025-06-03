@@ -18,12 +18,6 @@ jobs:
           ruby-version: 3.2.2
           bundler-cache: true
 
-      - name: Decode signing certificate into a file
-        env:
-          CERTIFICATE_BASE64: ${{ secrets.APPLE_KEY_ID }}
-        run: |
-          echo $CERTIFICATE_BASE64 | base64 --decode > signing-cert.p12
-          
       - name: Install Bundle
         run: bundle install
 
