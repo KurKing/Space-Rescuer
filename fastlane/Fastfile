@@ -25,17 +25,15 @@ platform :ios do
   lane :app_store do
   
     api_key = get_api_key
-
-    prepare_release_build(api_key: api_key)
     
     deliver(
       api_key: api_key,
       app_identifier: "com.kurking.Space-Rescuer",
-      ipa: "build/Space-Rescuer.ipa",
       submit_for_review: false,
       precheck_include_in_app_purchases: false,
       force: true,
-      skip_screenshots: true
+      skip_screenshots: true,
+      skip_binary_upload: true
     )
   end
   
