@@ -21,8 +21,8 @@ platform :ios do
     )
   end
   
-  desc "AppStore"
-  lane :app_store do
+  desc "What'new upload"
+  lane :what_is_new do
   
     api_key = get_api_key
     
