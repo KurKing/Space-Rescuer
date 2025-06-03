@@ -33,7 +33,8 @@ platform :ios do
       precheck_include_in_app_purchases: false,
       force: true,
       skip_screenshots: true,
-      skip_binary_upload: true
+      skip_binary_upload: true,
+      skip_app_version_update: true
     )
   end
   
