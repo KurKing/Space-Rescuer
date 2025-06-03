@@ -4,8 +4,24 @@ KEYCHAIN_PASSWORD = ENV["KEYCHAIN_PASSWORD"]
 default_platform :ios
 
 platform :ios do
+
   desc "TestFlight"
   lane :tf do
+  
+    prepare_release_build
+
+    testflight(
+      apple_id: ENV["APPLICATION_APPLE_ID"],
+      ipa: "build/Space-Rescuer.ipa",
+      skip_submission: true,
+      skip_waiting_for_build_processing: true
+    )
+    
+  end
+  
+  desc "Prepare build"
+  lane :prepare_release_build do
+    
     create_keychain(
       name: KEYCHAIN_NAME,
       password: KEYCHAIN_PASSWORD,
@@ -65,13 +81,6 @@ platform :ios do
       output_directory: "build",
       output_name: "Space-Rescuer.ipa",
       export_method: "app-store"
-    )
-
-    testflight(
-      apple_id: ENV["APPLICATION_APPLE_ID"],
-      ipa: "build/Space-Rescuer.ipa",
-      skip_submission: true,
-      skip_waiting_for_build_processing: true
     )
   end
 end
